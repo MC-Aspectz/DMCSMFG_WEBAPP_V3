@@ -1,0 +1,26 @@
+<?php
+    $lang = [
+        "countryindex" => "Country Index",
+        "countrycd" => "Country Code",
+        "countryname" => "Country Name",
+        "decimalunit" => "Decimal (Unit)",
+        "decimaltotal" => "Decimal (Total)",
+        "currencydisplayed" => "Currency Displayed",
+        "clear" => "Clear",
+        "end" => "End",
+        "select" => "Select",
+        "view" => "View",
+        "csv" => "CSV",
+        "back" => "Back",
+        "search" => "Search",
+        "no" => "NO",
+        "rowcount" => "Row Count",
+        "detail" => "Detail",
+        "title" => "Title",
+        "value" => "Value",
+        "category" => "Category",
+        "categoryname" => "Category Name",
+        "description" => "Description",
+        "close" => "Close",
+    ];
+?>

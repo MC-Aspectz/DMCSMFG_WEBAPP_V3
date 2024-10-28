@@ -1,0 +1,25 @@
+<?php
+    $lang = [
+        "currencyindex" => '通貨指数',
+        "currencycode" => "通貨コード",
+        "currency" => "通貨",
+        "decimalunit" => "小数 (ユニット)",
+        "decimaltotal" => "小数 (合計)",
+        "currencydisplayed" => "表示通貨",
+        "clear" => "クリア",
+        "end" => "終了",
+        "select" => "選択する",
+        "view" => "意見",
+        "back" => "戻る",
+        "search" => "検索",
+        "no" => "NO",
+        "rowcount" => "行数",
+        "detail" => "詳細",
+        "title" => "タイトル",
+        "value" => "価値",
+        "category" => "カテゴリーコード",
+        "categoryname" => "種別名",
+        "description" => "説明",
+        "close" => "Close", 
+    ];
+?>

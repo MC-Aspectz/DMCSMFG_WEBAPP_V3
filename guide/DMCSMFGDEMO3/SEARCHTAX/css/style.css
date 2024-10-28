@@ -1,0 +1,35 @@
+table {
+  border-collapse: collapse;
+}
+
+#search_table tr:nth-child(even) {
+  /*class="bg-orange-50";*/
+  background: #fff7ed;
+}
+
+#search_table tr:nth-child(odd) {
+  /*class="bg-white";*/
+  background: white;
+}
+
+thead {
+  position: -webkit-sticky;  /* for Safari */
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+#search_table tr:hover td {
+  background-color: #add8e6;
+  border: 1.0px solid #add8e6;
+}
+
+#click-row td {
+  background-color: skyblue;
+  border: 1.0px solid skyblue;
+}
+
+.modal-header {
+  color: black;
+  background-color: white;
+}

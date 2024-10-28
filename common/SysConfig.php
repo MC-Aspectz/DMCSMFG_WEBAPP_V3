@@ -1,0 +1,3 @@
+<?php
+    $APP_FOLDER = 'DMCSMFG_WEBAPP_V3';
+?>

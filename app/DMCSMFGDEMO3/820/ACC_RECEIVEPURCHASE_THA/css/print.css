@@ -1,0 +1,311 @@
+.page{
+	page-break-after: always;
+}
+
+.flex {
+	display: flex;	width: 100%;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.space-evenly {
+	justify-content: space-evenly;
+}
+
+.space-between {
+	justify-content: space-between; 
+}
+
+.justify-start {
+	justify-content: flex-start;
+	display: flex;
+	flex: 1;
+	width: 20%;
+}
+
+.justify-center {
+	justify-content: center;
+	display: flex;
+	flex: 1;
+	width: 60%;
+}
+
+.justify-end {
+	justify-content: flex-end;
+	display: flex;
+	flex: 1;
+	width: 15%;
+}
+
+.width20 {
+	width: 20%;
+}
+
+.width30 {
+	width: 30%;
+}
+
+.width40 {
+	width: 40%;
+}
+
+.width45 {
+	width: 45%;
+}
+
+.width50 {
+	width: 50%;
+}
+
+.width60 {
+	width: 60%;
+}
+
+.width80 {
+	width: 80%;
+}
+
+.width97 {
+	width: 97%;
+	margin-left: 5.0px;
+}
+
+.frame-border60 {
+	justify-content: flex-start;
+	border: 1.0px solid black;
+	width: 80%;
+	height: 60.0px;
+}
+
+.border-frame35 {
+	display: flex;
+	width: 35%;
+	border: 1.0px solid black;
+}
+
+.border-frame40 {
+	display: flex;
+	width: 40%;
+	border: 1.0px solid black;
+}
+
+.border-frame60 {
+	display: flex;
+	width: 60%;
+	border: 1.0px solid black;
+}
+
+.frame60 {
+	display: flex;
+	width: 60%;
+}
+
+
+.title-bill {
+	font-family: Times New Roman;
+	text-align: center;
+	color: #3c5564;
+}
+
+.label-text18 {
+	font-family: Times New Roman;
+	font-size: 18.0px;
+	padding-left: 5.0px;
+	color: #3c5564;
+}
+
+.label-text16 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 16.0px;
+	color: #3c5564;
+}
+
+.label-text14-head {
+	font-family: Times New Roman;
+	font-weight: bold;
+	text-align: center; 
+	font-size: 14.0px;
+	color: #3c5564;
+}
+
+.label-text15 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 15.0px;
+	color: #3c5564;
+}
+
+.label-text14 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 14.0px;
+	color: #3c5564;
+}
+
+.label-text14I {
+	font-family: Times New Roman;
+	padding-left: 8.0px; 
+	font-size: 14.0px;
+	color: #3c5564;
+}
+
+.label-text13 {
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.label-text11 {
+	font-family: Times New Roman;
+	font-size: 11.0px;
+	color: #3c5564;
+}
+
+.text-right {
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;	
+}
+
+.span-underline15 {
+	font-size: 15.0px;
+	padding-left: 5.0px;
+	text-decoration: underline;
+	color: #3c5564;
+}
+
+.span-underline16 {
+	font-size: 16.0px;
+	text-decoration: underline;
+	color: #3c5564;
+}
+
+.span-underline17 {
+	font-size: 17.0px;
+	text-decoration: underline;
+	color: #3c5564;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.remark {
+	padding-left: 2%;
+	font-family: Times New Roman;
+	font-size: 11.0px;
+	color: #3c5564;
+}
+
+.table {
+	/*height: 350.0px;*/
+	width: 98%;
+	border: 1.0px solid black;
+	border-collapse: collapse;
+	font-family: Times New Roman;
+}
+
+.table-tr {
+	height: 30.0px;
+	vertical-align: bottom;
+}
+
+.tr-height {
+	height: 20.0px;
+}
+
+.td-label-width10 {
+	width: 10%;
+	border: 1.0px solid black;
+	font-family: Times New Roman;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width15 {
+	width: 15%;
+	border: 1.0px solid black;
+	font-family: Times New Roman;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width20 {
+	width: 20%;
+	border: 1.0px solid black;
+	font-family: Times New Roman;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width30 {
+	width: 30%;
+	border: 1.0px solid black;
+	font-family: Times New Roman;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-text-center {
+	border-left: 1.0px solid black;
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	text-align: center;
+	color: #3c5564;
+}
+
+.td-text-left {
+	border-left: 1.0px solid black;
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	text-align: left;
+	color: #3c5564;
+	padding-left: 5.0px;
+}
+
+.td-text-right {
+	border-left: 1.0px solid black;
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;
+}
+
+.td-boder-left {
+	border-left: 1.0px solid black;
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;
+}
+
+.td-border {
+	border-left: 1.0px solid black;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+hr {
+	flex-grow: 1;
+	/* width: 100%; */ /* or this */
+}
+
+p {
+	margin-top: 0.6em;
+	margin-bottom: 0em;
+}
+
+tfoot {
+	border: 1.0px solid black;
+}

@@ -1,0 +1,242 @@
+.form {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    margin-left: 5px;
+    width: 99%;
+}
+
+.flex .col-100 {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.flex .col-first {
+    width: 40%;
+    margin-top: 10px;
+}
+
+.flex .col-second {
+    width: 60%;
+    margin-top: 10px;
+}
+
+.req {
+    outline: red solid 1px;
+}
+
+.label-width10 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 10%;
+}
+
+.label-width27 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 27%;
+}
+
+.height25 {
+    height: 25px;
+}
+
+.width3 {
+    width: 3%;
+    height: 25px;
+}
+
+.width10 {
+    width: 10%;
+    height: 25px;
+}
+
+.width15 {
+    width: 15%;
+    height: 25px;
+}
+
+.width20 {
+    width: 20%;
+    height: 25px;
+}
+
+.width22 {
+    width: 21.5%;
+    height: 25px;
+}
+
+.width26 {
+    width: 26%;
+    height: 25px;
+}
+
+.width30 {
+    width: 30%;
+    height: 25px;
+}
+
+.fix-icon {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    width: 40px;
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
+.text-thb {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    background-color: silver;
+    border: 1px solid silver;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 1px;
+    width: 40px;
+    height: 25px;
+}
+
+.font-size14 {
+    font-size: 14px;
+    margin-left: 1%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.font-size16 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.font-canceled {
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.btn-action {
+    font-family: "Times New Roman", Times, serif;
+    height: 25px;
+    width: 110px;
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 3.0px;
+    border: 1px solid silver;
+    box-shadow: -0.2px 0.5px 0.5px 0.5px #888888;
+}
+
+.footer {
+    margin-bottom: 2%;
+}
+
+.swal2-html-container, .swal2-title{
+    height: 40px;
+    font-size: 14px;
+    color: white !important;
+    padding-top: 15px;
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+.swal2-cancel {
+    height: 40px;
+    width: 80px;          
+    color: black !important;
+    font-family: "Times New Roman", Times, serif !important;
+    border: 1px solid silver;
+   
+}
+.swal2-confirm {
+    height: 40px;
+    width: 80px;
+    color: black !important;
+    font-family: "Times New Roman", Times, serif !important;
+    border: 1px solid silver;
+    /*background-color: #000000 !important;*/
+}
+
+.height365 {
+    height: 365px;
+}
+
+.table {
+    overflow: auto;
+}
+
+.table-head {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.th-class {
+    position: -webkit-sticky;  /* for Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 25px;
+    background: #f0efef;
+    border: 1px solid black;
+    font-family: "Times New Roman", Times, serif;
+    /*padding-left: 10px;*/
+    text-align: center;
+}
+
+.td-class {
+    height: 25px;
+   /* padding-left: 1%;*/
+}
+
+.td-hide {
+   height: 25px;
+   display: none;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff;
+}
+
+tr.grey {
+    background:gray;
+}
+
+tr:not(.grey) {
+    background:lightgray;
+}
+
+#table tr:hover td {
+  background-color: #add8e6;
+  border: 1px solid #add8e6;
+}
+
+.flex-border {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.tb-button {
+    width: 40px;
+    height: 30px;
+    margin: 3px;
+    line-height: 15px;
+}
+
+tr.tr_border td {
+    border-bottom: 1px solid silver;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}
+
+.selected-row {
+    background-color: skyblue !important;
+    /*background-color: #0099FF !important;;*/
+}

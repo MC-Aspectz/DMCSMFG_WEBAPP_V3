@@ -1,0 +1,3 @@
+function onloadpage() {
+	$('#loading').show();
+}

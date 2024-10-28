@@ -1,0 +1,134 @@
+<style>
+    .form {
+        width: 100%;
+    }
+
+    .flex {
+        display: flex;
+        margin-left: 5px;
+        width: 99%;
+    }
+
+    .flex .col-first {
+        width: 55%;
+        margin-top: 10px;
+    }
+
+    .flex .col-second {
+        width: 45%;
+        margin-top: 10px;
+    }
+
+   .label-width20 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+        float: left;
+        width: 20%;
+    }
+
+    .width30 {
+        width: 30%;
+        height: 25px;
+    }
+
+    .width70 {
+        width: 70%;
+        height: 25px;
+    }
+
+    .height280 {
+        height: 280px;
+    }
+
+    .height380 {
+        height: 380px;
+    }
+
+    .table {
+        overflow: auto;
+    }
+
+    .table-head {
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    .font-size14 {
+        font-size: 14px;
+        margin-left: 1%;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .font-size16 {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .th-class {
+        position: -webkit-sticky;  /* for Safari */
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        height: 25px;
+        background: #f0efef;
+        border: 1px solid black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .td-class {
+        height: 25px;
+        padding-left: 1%;
+    }
+
+    table tr:nth-child(odd) td {
+        background: #fff;
+    }
+
+    tr td {
+        border-bottom: 1px solid silver;
+        border-left: 1px solid silver;
+        border-right: 1px solid silver;
+    }
+
+    #table_result tr:hover td {
+      background-color: #add8e6;
+      border: 1px solid #add8e6;
+    }
+
+    #click-row td{
+      background-color: #0099FF;
+      border: 1px solid #0099FF;
+    }
+
+    .option-text {
+        text-align-last: top !important;
+        font-size: 11px;
+    }
+
+    .btn-action {
+        font-family: "Times New Roman", Times, serif;
+        height: 25px;
+        width: 80px;
+        display: inline-flex;
+        align-items: center; 
+        justify-content: center;
+        border-radius: 3.0px;
+        border: 1px solid silver;
+        box-shadow: -0.2px 0.5px 0.5px 0.5px #888888;
+    }
+
+    .footer {
+     /*   position: fixed;
+        bottom: 5%; */
+        width: 97%;
+        margin-top: 3%;
+    }
+    
+    .modal-header {
+        color: black;
+        background-color: white;
+    }
+</style>

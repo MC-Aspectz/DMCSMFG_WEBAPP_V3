@@ -1,0 +1,43 @@
+.selected-row {
+  background-color: skyblue !important;
+  border: 1.0px solid skyblue !important;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#table_sale tr:nth-child(even) {
+  /*class="bg-stone-100";*/
+  background: #f5f5f4;
+}
+
+#table_sale tr:nth-child(odd) {
+  /*class="bg-white";*/
+  background: white;
+}
+
+#table_acc tr:nth-child(even) {
+  /*class="bg-stone-100";*/
+  background: #f5f5f4;
+}
+
+#table_acc tr:nth-child(odd) {
+  /*class="bg-white";*/
+  background: white;
+}
+
+#table_sale tbody tr:hover td {
+  background-color: #add8e6;
+  border: 1px solid #add8e6;
+}
+
+#table_acc tbody tr:hover td {
+  background-color: #add8e6;
+  border: 1px solid #add8e6;
+}
+
+#click-row td {
+  background-color: #0099ff;
+  border: 1px solid #0099ff;
+}

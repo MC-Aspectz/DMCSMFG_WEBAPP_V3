@@ -1,0 +1,49 @@
+.selected {
+  background-color: skyblue !important;
+  border: 1.0px solid skyblue !important;
+}
+
+#selected-row td {
+  background-color: skyblue !important;
+  border: 1.0px solid skyblue !important;
+}
+
+.read-background {
+    background-color: whitesmoke !important;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#table_customer tr:nth-child(even) {
+  background: #f5f5f4;
+}
+
+#table_customer tr:nth-child(odd) {
+  background: white;
+}
+
+#table_customer tr:hover td {
+  background-color: #add8e6;
+  border: 1.0px solid #add8e6;
+}
+
+.sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+}
+
+.first-col {
+    width: 100.0px;
+    min-width: 100.0px;
+    max-width: 100.0px;
+    left: 0px;
+}
+
+.w-100 {
+  width: 100.0px;
+  min-width: 100.0px;
+  max-width: 100.0px;
+}

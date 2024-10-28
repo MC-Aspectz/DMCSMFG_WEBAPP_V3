@@ -1,0 +1,27 @@
+<?php
+    $lang = [
+        "taxcode" => 'รหัสภาษี',
+        "taxname" => "ชื่อภาษี",
+        "taxtype" => "ประเภทภาษี",
+        "taxrate" => "อัตราภาษี",
+        "taxcatagory" => "หมวดภาษี",     
+        "decimaltotal" => "ตัวเลขทศนิยม (รวม)",
+        "currencydisplayed" => "สกุลเงินที่แสดง",
+        "clear" => "ล้าง",
+        "end" => "สิ้นสุด",
+        "select" => "เลือก",
+        "csv" => "CSV",
+        "view" => "แสดง",
+        "back" => "ย้อนกลับ",
+        "search" => "ค้นหา",
+        "no" => "เลขที่",
+        "rowcount" => "จำนวนแถว",
+        "detail" => "รายละเอียด",
+        "title" => "หัวข้อ",
+        "value" => "ราคา",
+        "category" => "รหัสประเภท",
+        "categoryname" => "ชื่อหมวดหมู่",
+        "description" => "คำอธิบาย",
+        "close" => "ปิด", 
+    ];
+?>

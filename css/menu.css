@@ -1,0 +1,75 @@
+/* width */
+::-webkit-scrollbar {
+    width: 8.0px;
+    height: 8.0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /*background: #a7a7a7;*/
+    border-radius: 9999.0px;
+    background-color: #d1d5db;
+    background-clip: padding-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /*background: #929292;*/
+    background: #d1d5db;
+}
+
+section {
+    font-family: 'Poppins', sans-serif;
+}
+
+.read:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    border-color: silver !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+@media screen and (orientation: portrait) {
+    html {
+        -webkit-transform: translateY(-100%) rotate(90deg);    
+        transform: translateY(-100%) rotate(90deg);
+        -webkit-transform-origin: left bottom;    
+        transform-origin: left bottom;    
+    }
+}
+
+/*.swal2-html-container,
+.swal2-title {
+  height: 40.0px;
+  font-size: 14.0px;
+  color: white !important;
+  padding-top: 15.0px;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.swal2-cancel {
+  height: 40.0px;
+  width: 80.0px;
+  color: black !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  border: 1.0px solid silver;
+}
+.swal2-confirm {
+  height: 40.0px;
+  width: 80.0px;
+  color: black !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  border: 1.0px solid silver;
+}

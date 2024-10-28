@@ -1,0 +1,292 @@
+
+    .form {
+        width: 100%;
+    }
+
+    .flex {
+        display: flex;
+        margin-left: 5px;
+        width: 99%;
+    }
+
+    .flex .col-first {
+        width: 55%;
+        margin-top: 10px;
+    }
+
+    .flex .col-second {
+        width: 45%;
+        margin-top: 10px;
+    }
+
+    .req {
+        outline: red solid 1px;
+    }
+
+    .label-width15 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.6;
+        display: block;
+        float: left;
+        width: 15%;
+    }
+
+   .label-width20 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+        float: left;
+        width: 20%;
+    }
+
+   .label-width24 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+        float: left;
+        width: 24%;
+    }
+
+    .label-width27 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+        float: left;
+        width: 27%;
+    }
+
+    .width10 {
+        width: 10%;
+        height: 25px;
+    }
+
+    .width15 {
+        width: 15%;
+        height: 25px;
+    }
+
+    .width17 {
+        width: 17.5%;
+        height: 25px;
+    }
+
+    .width20 {
+        width: 20%;
+        height: 25px;
+    }
+
+    .width22 {
+        width: 22.5%;
+        height: 25px;
+    }
+
+    .width24 {
+        width: 24%;
+        height: 25px;
+    }
+
+    .width25 {
+        width: 25%;
+        height: 25px;
+    }
+
+    .width26 {
+        width: 26%;
+        height: 25px;
+    }
+
+    .width30 {
+        width: 30%;
+        height: 25px;
+    }
+
+    .width43 {
+        width: 43%;
+        height: 25px;
+    }
+
+    .width70 {
+        width: 70%;
+        height: 25px;
+    }
+
+    .width75 {
+        width: 75%;
+        height: 25px;
+    }
+
+    .height280 {
+        height: 280px;
+    }
+
+    .height380 {
+        height: 380px;
+    }
+
+    .table {
+        overflow: auto;
+    }
+
+    .table-head {
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    .font-size14 {
+        font-size: 14px;
+        margin-left: 1%;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .font-size16 {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .th-class {
+        position: -webkit-sticky;  /* for Safari */
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        height: 25px;
+        background: #f0efef;
+        border: 1px solid black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .td-class {
+        height: 25px;
+        padding-left: 1%;
+    }
+
+    table tr:nth-child(odd) td {
+        background: #fff;
+    }
+
+    #table_result tr:hover td {
+      background-color: #add8e6;
+      border: 1px solid #add8e6;
+    }
+
+    #click-row td{
+      background-color: #0099FF;
+      border: 1px solid #0099FF;
+    }
+
+    input:read-only, textarea:read-only {
+        background-color: #ccc;
+    }
+
+    .fix-icon {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 1.6;
+        position: absolute;
+        top: -2px;
+        right: -26px;
+        position: relative;
+        width: 40px;
+        padding-top: 5px;
+    }
+
+    .img-height20 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 1.6;
+        height: 20px;
+    }
+
+    .text-copy {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        margin-left: 20px;
+        margin-top: 2px;
+    }
+    
+
+    .option-text {
+        text-align-last: top !important;
+        font-size: 11px;
+    }
+
+    .text-thb {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: normal;
+        background-color: silver;
+        border: 1px solid silver;
+        text-align: center;
+        border-radius: 2px;
+        margin-left: 1px;
+        width: 40px;
+        height: 25px;
+    }
+
+    .btn-action {
+        font-family: "Times New Roman", Times, serif;
+        height: 25px;
+        width: 80px;
+        display: inline-flex;
+        align-items: center; 
+        justify-content: center;
+        border-radius: 3.0px;
+        border: 1px solid silver;
+        box-shadow: -0.2px 0.5px 0.5px 0.5px #888888;
+    }
+
+    .btn-action:active {
+        background-color: silver;
+        box-shadow: 0 1px silver;
+        transform: translateY(4px);
+    }
+
+    .footer {
+     /*   position: fixed;
+        bottom: 5%;
+        width: 97%;  */
+        margin-top: 3%;
+    }
+
+    .swal2-html-container, .swal2-title{
+        height: 40px;
+        font-size: 14px;
+        color: white !important;
+        padding-top: 15px;
+        font-family: "Times New Roman", Times, serif !important;
+    }
+
+    .swal2-cancel {
+        height: 35px;
+        width: 80px;          
+        color: black !important;
+        font-family: "Times New Roman", Times, serif !important;
+        border: 1px solid silver;
+       
+    }
+    .swal2-confirm {
+        height: 40px;
+        width: 80px;
+        color: black !important;
+        font-family: "Times New Roman", Times, serif !important;
+        border: 1px solid silver;
+        /*background-color: #000000 !important;*/
+    }
+
+    .grid-container-3 {
+        display: grid;
+        column-gap: 1px;
+        grid-template-columns: auto auto auto;
+        padding: 1px;
+      }
+      
+      .grid-container-2 {
+        display: grid;
+        column-gap: 1px;
+        grid-template-columns: auto auto;
+        padding: 1px;
+      }

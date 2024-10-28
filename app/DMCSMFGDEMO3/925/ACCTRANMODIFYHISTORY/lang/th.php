@@ -1,0 +1,5 @@
+<?php
+    $txtbylang = [
+        "close" => "ปิด"
+    ];
+?>

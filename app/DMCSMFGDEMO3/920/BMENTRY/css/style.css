@@ -1,0 +1,731 @@
+
+.form {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    margin-left: 5.0px;
+    width: 99%;
+  }
+  
+  .flex .col-35 {
+    width: 35%;
+    margin-left: 8.0px;
+  }
+  
+  .flex .col-45 {
+    width: 45%;
+    margin-left: 8.0px;
+    justify-content: space-between;
+  }
+  
+  .flex .col-40 {
+    width: 40%;
+    margin-left: 8.0px;
+    justify-content: space-between;
+  }
+  
+  .flex .col-50 {
+    width: 50%;
+    margin-left: 8.0px;
+    justify-content: space-between;
+  }
+
+  .flex .col-60 {
+    width: 62%;
+    margin-left: 8.0px;
+  }
+  
+  .flex .col-2 {
+    width: 2%;
+    margin-left: 8.0px;
+  }
+  
+  .flex .col-5 {
+    width: 5%;
+    margin-left: 8.0px;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex .col-5 {
+    width: 5%;
+    margin-left: 8.0px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flex .col-30 {
+    width: 25%;
+    margin-top: 0.1px
+  }
+  
+  .flex .col-70 {
+    width: 70%;
+    margin-top: 0.1px
+  }
+  
+  .flex .col-100 {
+    width: 100%;
+    margin-top: 0.1px
+  }
+  
+  .flex .col-first {
+    width: 80%;
+    margin-top: 10px;
+  }
+  
+  .flex .col-second {
+    width: 20%;
+    margin-top: 10px;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .flex-border {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+.req {
+    outline: red solid 1px;
+}
+
+.label-width2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    display: block;
+    float: left;
+    width: 2%;
+}
+
+.label-width4 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    display: block;
+    float: left;
+    width: 4%;
+}
+
+
+.label-width14 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    display: block;
+    float: left;
+    width: 14%;
+}
+
+
+.label-width15 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    display: block;
+    float: left;
+    width: 15%;
+}
+
+.label-width16 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    display: block;
+    float: left;
+    width: 16%;
+}
+
+.label-width18 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 18%;
+}
+
+.label-width20 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 20%;
+}
+
+.label-width22 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 22%;
+}
+
+.label-width23 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 23%;
+}
+
+.label-width24 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 24%;
+}
+
+.label-width27 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 27%;
+}
+
+.label-width30 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 30%;
+}
+
+.label-width31 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 31%;
+}
+
+
+.label-width40 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 40%;
+}
+
+.label-width57 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 57%;
+}
+
+.label-width70 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    float: left;
+    width: 70%;
+}
+
+.width2 {
+    width: 2%;
+    height: 25px;
+}
+
+.width5 {
+    width: 5%;
+    height: 25px;
+}
+
+.width7 {
+    width: 7%;
+    height: 25px;
+}
+
+.width8 {
+    width: 8%;
+    height: 25px;
+}
+
+.width10 {
+    width: 10%;
+    height: 25px;
+}
+
+.width11 {
+    width: 10%;
+    height: 25px;
+}
+
+.width14 {
+    width: 14%;
+    height: 25px;
+}
+
+.width15 {
+    width: 15%;
+    height: 25px;
+}
+
+.width16 {
+    width: 16%;
+    height: 25px;
+}
+
+.width17 {
+    width: 17%;
+    height: 25px;
+}
+
+.width18 {
+    width: 18%;
+    height: 25px;
+}
+
+.width19 {
+    width: 19%;
+    height: 25px;
+}
+
+.width20 {
+    width: 20%;
+    height: 25px;
+}
+
+.width21 {
+    width: 21%;
+    height: 25px;
+}
+
+.width22 {
+    width: 22.5%;
+    height: 25px;
+}
+
+.width24 {
+    width: 24%;
+    height: 25px;
+}
+
+.width25 {
+    width: 25%;
+    height: 25px;
+}
+
+.width26 {
+    width: 26%;
+    height: 25px;
+}
+
+.width27 {
+    width: 26%;
+    height: 25px;
+}
+
+.width30 {
+    width: 30%;
+    height: 25px;
+}
+
+.width37 {
+    width: 37%;
+    height: 25px;
+}
+
+.width40 {
+    width: 40%;
+    height: 25px;
+}
+
+.width43 {
+    width: 43%;
+    height: 25px;
+}
+
+.width50 {
+    width: 50%;
+    height: 25px;
+}
+
+.width54 {
+    width: 54%;
+    height: 25px;
+}
+
+.width70 {
+    width: 70%;
+    height: 25px;
+}
+
+.width75 {
+    width: 75%;
+    height: 25px;
+}
+
+.height200 {
+    height: 200px;
+}
+
+.height230 {
+    height: 230px;
+}
+
+.height250 {
+    height: 250px;
+}
+
+.height280 {
+    height: 280px;
+}
+
+.height300 {
+    height: 300px;
+}
+
+.height330 {
+    height: 330px;
+}
+
+.height380 {
+    height: 380px;
+}
+
+.table {
+    overflow: auto;
+}
+
+.table-head {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.font-size14 {
+    font-size: 14px;
+    margin-left: 1%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.font-size16 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#click-row td{
+    background-color: #0099FF;
+    border: 1.0px solid #0099FF;
+}
+
+.selected-row {
+    background-color: #0099FF !important;
+    border: 1.0px solid #0099FF !important;
+}
+
+.th-class {
+    position: -webkit-sticky;  /* for Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 25px;
+    background: #f0efef;
+    border: 1px solid black;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.td-class {
+    height: 20.0px;
+    padding-left: 1%;
+    font-size: 14.0px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.td-hide {
+    height: 20.0px;
+    display: none;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+tr.grey {
+  background: gray;
+}
+
+tr:not(.grey) {
+  background: lightgray;
+}
+
+#table tr:hover td {
+  background-color: #add8e6;
+  border: 1px solid #add8e6;
+}
+
+.flex-border {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.tb-button {
+  width: 40px;
+  height: 20.0px;
+  margin: 3px;
+  line-height: 14px;
+  padding-top: 0em;
+}
+
+tr.tr_border td {
+  border-bottom: 1px solid silver;
+  border-left: 1px solid silver;
+  border-right: 1px solid silver;
+}
+
+input:read-only, textarea:read-only {
+    background-color: #ccc;
+}
+
+.fix-icon {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    position: absolute;
+    top: -7px;
+    left: 12px;
+    position: relative;
+    width: 40px;
+    padding-top: 5px;
+}
+
+.img-height20 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    height: 20px;
+}
+
+.text-copy {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+
+.option-text {
+    text-align-last: top !important;
+    font-size: 11px;
+}
+
+.text-thb {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    background-color: silver;
+    border: 1px solid silver;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 1px;
+    width: 40px;
+    height: 25px;
+}
+
+.btn-action {
+    font-family: "Times New Roman", Times, serif;
+    height: 25px;
+    width: 80px;
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 3.0px;
+    border: 1px solid silver;
+    box-shadow: -0.2px 0.5px 0.5px 0.5px #888888;
+}
+
+.btn-action:active {
+    background-color: silver;
+    box-shadow: 0 1px silver;
+    transform: translateY(4px);
+}
+
+.footer {
+ /*   position: fixed;
+    bottom: 5%;
+    width: 97%;  */
+    margin-top: 3%;
+}
+
+.swal2-html-container, .swal2-title{
+    height: 40px;
+    font-size: 14px;
+    color: white !important;
+    padding-top: 15px;
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+.swal2-cancel {
+    height: 35px;
+    width: 80px;          
+    color: black !important;
+    font-family: "Times New Roman", Times, serif !important;
+    border: 1px solid silver;
+   
+}
+.swal2-confirm {
+    height: 40px;
+    width: 80px;
+    color: black !important;
+    font-family: "Times New Roman", Times, serif !important;
+    border: 1px solid silver;
+    /*background-color: #000000 !important;*/
+}
+
+.grid-container-3 {
+    display: grid;
+    column-gap: 1px;
+    grid-template-columns: auto auto auto;
+    padding: 1px;
+  }
+  
+  .grid-container-2 {
+    display: grid;
+    column-gap: 1px;
+    grid-template-columns: auto auto;
+    padding: 1px;
+  }
+
+  .arrow-right {
+    border: solid gray;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    border-color: transparent;
+    border-style: solid;
+    /*border-width: .31em 0 .31em .5em;*/
+    border-width: 0.36em 0 0.36em 0.62em;
+    border-top-color: transparent;
+    border-left-color: gray;
+  }
+
+  .arrow-down {
+    border: solid gray;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: gray;
+    border-style: solid;
+    /*border-width: .5em .31em 0;*/
+    border-width: 0.62em 0.36em 0;
+  }
+
+  .title {
+    /* margin-top: 0.0px !important;  */
+    margin-left: 20.0px !important; 
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+
+  }
+  
+  .title1 {
+    
+    /* margin-top: 0.0px !important;      */
+    margin-left: 40.0px !important;     
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+
+  }
+  
+  .title2 {
+    /* margin-top: 0.0px !important;      */
+    margin-left: 40.0px !important;
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+
+  }
+  
+  .title3 {
+    /* margin-top: 0.0px; */
+    margin-left: 70.0px;
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+
+  }
+  
+  .title4 {
+    /* margin-top: 0.0px; */
+    margin-left: 90.0px;
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+
+  }
+  
+  .title5 {
+    /* margin-top: 0.0px; */
+    margin-left: 110.0px;
+    /* height: 30.0px;
+    line-height: 30.0px; */
+    overflow: hidden !important;      
+  }
+
+  .bomView {
+    display: none;
+    overflow: hidden;
+    /*margin-top: 0.1px;*/
+    /*margin-left: 15.0px;*/
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .bomView1 {
+    display: none;
+    overflow: hidden;
+  }
+  
+  .bomView2 {
+    display: none;
+    overflow: hidden;
+  }
+  
+  .bomView3 {
+    display: none;
+    overflow: hidden;
+  }
+  
+  .bomView4 {
+    display: none;
+    overflow: hidden;
+  }
+
+  .text-item {
+    padding-left: 10.0px;
+    vertical-align: bottom;
+    font-size:  normal;
+    font-size: 14.0px;
+    text-overflow: ellipsis;
+    width: 80%;
+    max-lines: 1 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: "Times New Roman", Times, serif;
+  }

@@ -1,0 +1,43 @@
+.selected {
+  background-color: skyblue !important;
+  border: 1.0px solid skyblue !important;
+}
+
+#selected-row td {
+  background-color: skyblue !important;
+  border: 1.0px solid skyblue !important;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#tableDVWA tr:nth-child(even) {
+  /*class="bg-stone-100";*/
+  background: #f5f5f4;
+}
+
+#tableDVWA tr:nth-child(odd) {
+  /*class="bg-white";*/
+  background: white;
+}
+
+#tableDVWA tr:hover td {
+  background-color: #add8e6;
+  border: 1.0px solid #add8e6;
+}
+
+#tableDVWP tr:nth-child(even) {
+  /*class="bg-stone-100";*/
+  background: #f5f5f4;
+}
+
+#tableDVWP tr:nth-child(odd) {
+  /*class="bg-white";*/
+  background: white;
+}
+
+#tableDVWP tr:hover td {
+  background-color: #add8e6;
+  border: 1.0px solid #add8e6;
+}

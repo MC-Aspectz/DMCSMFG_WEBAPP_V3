@@ -1,0 +1,38 @@
+<?php
+    $lang = [
+        "itemmaster" => "Item Master",
+        "voucherindex" => "在庫情報伝票ガイド", 
+        "itemcode" => "Item Code", 
+        "itemname" => "Item Name",
+        "searchstr" => "Search String",
+        "speciafication" => "Specification",
+        "typeofitem" => "Type of Item",
+        "drawingno" => "Drawing No.",
+        "saleenddate" => "Sales End Date",
+        "search" => "Search",
+        "select" => "Select",
+        "view" => "View",
+        "clear" => "Clear",
+        "back" => "Back",
+        "end" => "End",
+        "no" => "NO",
+        "rowcount" => "Row Count",
+        "detail" => "Detail",
+        "title" => "Title",
+        "value" => "Value",
+        "voucherno" => "Voucher No.",
+        "processtype" => "Process Type",
+        "locationtype" => "Location Type",
+        "voucherdate" => "Voucher Date",
+        "arrow" => "→",
+        "locationcode" => "Location Code",
+        "locationname" => "Location Name",
+        "itemcode" => "Item Code",
+        "itemname" => "Item Name",
+        "specification" => "Specification",
+        "quantity" => "Quantity",
+        "comment" => "Comment",
+
+
+    ];
+?>

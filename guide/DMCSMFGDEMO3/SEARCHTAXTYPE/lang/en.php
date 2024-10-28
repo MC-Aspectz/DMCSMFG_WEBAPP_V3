@@ -1,0 +1,25 @@
+<?php
+    $lang = [
+        "taxcode" => 'Tax code',
+        "taxname" => "Tax name",
+        "taxtype" => "Tax Type",   
+        "taxrate" => "Tax rate",     
+        "taxcatagory" => "Tax Catagory",     
+        "clear" => "Clear",
+        "end" => "End",
+        "select" => "Select",
+        "view" => "View",
+        "csv" => "CSV",
+        "back" => "Back",
+        "search" => "Search",
+        "no" => "NO",
+        "rowcount" => "Row Count",
+        "detail" => "Detail",
+        "title" => "Title",
+        "value" => "Value",
+        "category" => "Category",
+        "categoryname" => "Category Name",
+        "description" => "Description",
+        "close" => "Close",
+    ];
+?>

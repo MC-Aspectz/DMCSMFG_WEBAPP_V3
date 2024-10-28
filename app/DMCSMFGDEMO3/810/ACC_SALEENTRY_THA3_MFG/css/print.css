@@ -1,0 +1,425 @@
+.page{
+	page-break-after: always;
+}
+
+.flex {
+	display: flex;	width: 100%;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.space-evenly {
+	justify-content: space-evenly;
+}
+
+.space-between {
+	justify-content: space-between; 
+}
+
+.width20 {
+	width: 20%;
+}
+
+.width25 {
+	width: 25%;
+}
+
+.width40 {
+	width: 40%;
+}
+
+.width60 {
+	width: 60%;
+}
+
+.width70 {
+	width: 70%;
+}
+
+.width80 {
+	width: 80%;
+}
+
+.width95 {
+	width: 95%;
+}
+
+.width98 {
+	width: 98%;
+}
+
+.width45-border {
+	width: 45%;
+	border: 1.0px solid black;
+}
+
+.width65-border {
+	width: 65%;
+	border: 1.0px solid black;
+}
+
+.border-frame35 {
+	display: flex;
+	width: 35%;
+	border: 1.0px solid black;
+}
+
+.border-frame40 {
+	display: flex;
+	width: 40%;
+	border: 1.0px solid black;
+}
+
+.border-frame45 {
+	width: 45%;
+	border: 1.0px solid black;
+}
+
+.border-frame60 {
+	display: flex;
+	width: 60%;
+	border: 1.0px solid black;
+}
+
+.border-frame97 {
+	width: 97.8%;
+	border: 1px solid black;
+	padding-bottom: 1%;
+}
+
+.frame60 {
+	display: flex;
+	width: 60%;
+}
+
+.company-head {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	color: #3c5564;
+}
+
+.title-bill {
+	font-family: Times New Roman;
+	text-align: center;
+	color: #3c5564;
+}
+
+.title-label-text22 {
+	font-family: Times New Roman;
+	font-size: 22.0px;
+	font-weight: bold;
+	color: #3c5564;
+}
+
+.label-text {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	margin-bottom: 3.0px;
+	color: #3c5564;
+}
+
+.label-text18 {
+	font-family: Times New Roman;
+	font-size: 18.0px;
+	padding-left: 5.0px;
+	color: #3c5564;
+}
+
+.label-text16 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 16.0px;
+	color: #3c5564;
+}
+
+.label-text16-I {
+	font-family: Times New Roman;
+	font-size: 16.0px;
+	color: #3c5564;
+}
+
+.label-text15 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 15.0px;
+	color: #3c5564;
+}
+
+.label-text15-bold {
+	font-family: Times New Roman;
+	font-size: 15.0px;
+	font-weight: bold;
+	color: #3c5564;
+}
+
+.label-text14 {
+	font-family: Times New Roman;
+	margin-left: 5.0px;
+	font-size: 14.0px;
+	color: #3c5564;
+}
+
+.label-text14-I {
+	font-family: Times New Roman;
+	font-size: 14.0px;
+	color: #3c5564;
+}
+
+.label-text13 {
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.label-text13-I {
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	margin-left: 5.0px; 
+	color: #3c5564;
+}
+
+.label-text12 {
+	font-family: Times New Roman;
+	font-size: 12.0px;
+	color: #3c5564;
+}
+
+.label-text11 {
+	font-family: Times New Roman;
+	font-size: 11.0px;
+	color: #3c5564;
+}
+
+.label-text11-I {
+	font-family: Times New Roman;
+	font-size: 11.0px;
+	margin-left: 5.0px; 
+	color: #3c5564;
+}
+
+.label-text10 {
+	font-family: Times New Roman;
+	font-size: 10.0px;
+	color: #3c5564;	
+}
+
+.label-justify-start {
+	font-family: Times New Roman;
+	font-size: 14.0px; 
+	justify-content: flex-start;
+	display: flex;
+	flex: 1;
+	color: #3c5564;
+}
+
+.label-justify-center {
+	font-family: Times New Roman;
+	font-size: 18.0px;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	color: #3c5564;
+}
+
+.label-justify-end {
+	font-family: Times New Roman;
+	font-size: 14.0px;
+	justify-content:
+	flex-end; display: flex;
+	flex: 1;
+	color: #3c5564;
+}
+
+.label-text-spacing {
+	font-family: Times New Roman;
+	letter-spacing: 0.2px;
+	margin-left: 5.0px;
+	color: #3c5564;
+}
+
+.label-text-spacing-inline {
+	font-family: Times New Roman;
+	letter-spacing: 0.2px;
+	margin-left: 5.0px;
+	margin-top: 5.0px;
+	display:inline-block;
+	color: #3c5564;
+}
+
+.text-right {
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;	
+}
+
+.span-underline {
+	font-size: 15.0px;
+	padding-left: 5.0px;
+	text-decoration: underline;
+}
+
+.div-center {
+	text-align: center;
+}
+
+.remark {
+	padding-left: 2%;
+	font-family: Times New Roman;
+	font-size: 11.0px;
+	color: #3c5564;
+}
+
+.table-head {
+	width: 100%;
+	border: 1.0px solid black;
+	border-collapse: collapse;
+	font-family: Times New Roman;
+}
+
+.table {
+	width: 98%;
+	border: 1.0px solid black;
+	border-collapse: collapse;
+	font-family: Times New Roman;
+}
+
+.table-tr {
+	height: 30.0px;
+	vertical-align: bottom;
+}
+
+.tr-height {
+	height: 20.0px;
+}
+
+.td-label-center {
+	border: 1px solid black; 
+	text-align: center; 
+	font-size: 13.0px; 
+	color: #3c5564;
+}
+
+.td-label-left {
+	border: 1px solid black; 
+	padding-left: 3px; 
+	font-size: 13.0px; 
+	color: #3c5564;
+}
+
+.td-label-width3 {
+	width: 3%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width10 {
+	width: 10%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width15 {
+	width: 15%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width20 {
+	width: 20%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width25 {
+	width: 25%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width30 {
+	width: 30%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-label-width40 {
+	width: 3%;
+	border: 1.0px solid black;
+	text-align: center;
+	font-size: 13.0px;
+	color: #3c5564;
+}
+
+.td-text-center {
+	border-left: 1.0px solid black;
+	font-size: 13.0px;
+	text-align: center;
+	color: #3c5564;
+}
+
+.td-text-left {
+	border-left: 1.0px solid black;
+	font-size: 13.0px;
+	text-align: left;
+	color: #3c5564;
+	padding-left: 5.0px;
+}
+
+.td-text-right {
+	border-left: 1.0px solid black;
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;
+}
+
+.td-boder-left {
+	border-left: 1.0px solid black;
+	font-family: Times New Roman;
+	font-size: 13.0px;
+	text-align: right;
+	color: #3c5564;
+}
+
+.td-border {
+	border-left: 1.0px solid black;
+}
+
+.td-border-right {
+	border-right: 1.0px solid black;
+}
+
+.container {
+	display: flex;
+	flex: 1;
+}
+
+hr {
+	flex-grow: 1;
+	/* width: 100%; */ /* or this */
+}
+
+p {
+	margin-top: 0.6em;
+	margin-bottom: 0em;
+}
+
+tfoot {
+	border: 1.0px solid black;
+}
