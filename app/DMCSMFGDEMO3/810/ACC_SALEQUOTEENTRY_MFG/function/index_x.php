@@ -60,9 +60,11 @@ $data = array();
 $syslogic = new Syslogic;
 $javaFunc = new QuoteEntryMFG;
 $systemName = strtolower($appcode);
-$data['isPrint'] = 'off';
 $minrow = 0;
-$maxrow = 8;
+$maxrow = 6;
+$minsearchrow = 0;
+$maxsearchrow = 16;
+
 // https://web-develop.dmcs.biz/
 // http://acc01.dmcs.biz/
 if(!empty($_GET)) {

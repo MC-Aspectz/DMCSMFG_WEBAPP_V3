@@ -28,395 +28,601 @@
         <!--   start::Main Content  -->
         <main class="flex flex-1 overflow-y-auto paragraph">
             <!-- Content Page -->
+            <input type="hidden" id="maxrow" name="maxrow" value="<?=$maxrow?>">
             <input type="hidden" id="appcode" name="appcode" value="<?=$appcode?>">
             <input type="hidden" id="comcd" name="comcd" value="<?=$_SESSION['COMCD']?>">
             <input type="hidden" id="sessionUrl" name="sessionUrl" value="<?=$_SESSION['APPURL']?>">
             <form class="w-full mx-2" method="POST" id="quoteentryMFG" name="quoteentryMFG" action="" onkeydown="if(event.keyCode == 13) { event.preventDefault(); return false; }">
-                <label class="text-color block text-lg font-bold"><?=$_SESSION['APPNAME']; ?></label>
-                <div class="flex flex-col">
-                    <!-- Card -->
-                    <div class="p-1.5 inline-block align-middle">
-                        <!-- Header -->
-                        <div class="justify-between px-2 border border-gray-200 rounded-xl shadow-sm">
-                            <details class="p-1.5 w-full align-middle" open><!-- open -->
-                                <summary class="text-color mx-auto py-2 text-lg font-semibold"></summary>
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('ESTIMATE_NO')?></label>
-                                        <div class="relative w-4/12">
-                                            <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
-                                                    name="ESTNO" id="ESTNO" <?php if(!empty($data['ESTNO'])){ ?> value="<?=$data['ESTNO']; ?>"<?php } else { ?> value="" <?php }?>/>
+                <div class="flex py-1">
+                    <div class="flex w-6/12">
+                        <label class="text-color block text-lg font-bold"><?=$appname;?></label>
+                    </div>
+                    <div class="flex w-6/12 justify-end">
+                        <button type="button" class="btn text-color inline-flex items-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm font-bold px-5 py-1 text-center me-2"
+                            id="END" name="END" onclick="questionDialog(1, '<?=lang('question1')?>', '<?=lang('yes'); ?>', '<?=lang('no'); ?>');"><?=lang('close')?>&nbsp;[X]</button>
+                    </div>
+                </div>
+
+                <div class="flex w-full h-full">
+                    <!-- Side Search -->
+                    <aside class="w-[50%] h-[95%] mx-1 overflow-y-auto rounded shadow-sm border-2 border-gray-200 left-side-<?=$appcode?>">
+                        <button type="button" class="p-1" id="left-side" onclick="javascript:toggleSideForm('<?=$appcode?>', 'left');">
+                            <svg class="fill-current opacity-75 w-6 h-6 -mr-1 rotate-0" viewBox="0 0 256 512">
+                                <path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"></path>
+                            </svg>
+                        </button> 
+
+                        <div class="p-2 align-middle">
+                            <details id="search-condition" class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('searchcondition')?></summary>
+                                <div class="left-size">
+                                    <div class="flex mb-1">
+                                        <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="ESTIMATE_NO_TXT"><?=checklang('ESTIMATE_NO')?></label>
+                                        <div class="relative w-3/12 mr-1">
+                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                    id="SERESTNO1" name="SERESTNO1" value="<?=isset($data['SERESTNO1']) ? $data['SERESTNO1']: ''; ?>"/>
                                             <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                id="SEARCHQUOTE">
+                                                id="SEARCHQUOTE1">
+                                                <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                </svg>
+                                            </a>
+                                        </div>&ensp;→&ensp;
+                                        <div class="relative w-3/12 mr-1">
+                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                    id="SERESTNO2" name="SERESTNO2" value="<?=isset($data['SERESTNO2']) ? $data['SERESTNO2']: ''; ?>"/>
+                                            <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                id="SEARCHQUOTE2">
                                                 <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                                 </svg>
                                             </a>
                                         </div>
-                                        <button type="button" class="btn text-color shadow-md border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm text-center h-7 top-0 p-0 px-3 mx-1"
-                                                id="CLONEQUOTE" name="CLONEQUOTE"><?=checklang('CLONE')?></button>
-                                        <label class="w-4/12"></label>
                                     </div>
-                                    <div class="flex w-6/12 px-1 justify-end">
-                                        <label class="w-7/12"></label>
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('QUOTE_DATE')?></label>
-                                        <input class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 text-center"
-                                                type="date" id="ESTENTRYDT" name="ESTENTRYDT" value="<?=!empty($data['ESTENTRYDT']) ? date('Y-m-d', strtotime($data['ESTENTRYDT'])) : date('Y-m-d'); ?>"/>
-                                    </div>
-                                </div>
 
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('DIVISIONCODE')?></label>
-                                        <div class="relative w-4/12 mr-1">
-                                            <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300 req"
-                                                    name="DIVISIONCD" id="DIVISIONCD" value="<?=!empty($data['DIVISIONCD']) ? $data['DIVISIONCD']: ''; ?>" onchange="unRequired();" required/>
+                                    <div class="flex mb-1">
+                                        <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="INPUT_DATE_TXT"><?=checklang('QUOTE_DATE')?></label>
+                                        <input type="date" class="text-control text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 text-center"
+                                               id="SERINPDATE1" name="SERINPDATE1" value="<?=!empty($data['SERINPDATE1']) ? date('Y-m-d', strtotime($data['SERINPDATE1'])) : date('Y-m-d'); ?>"/>
+                                               &ensp;→&ensp;
+                                        <input type="date" class="text-control text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 text-center"
+                                              id="SERINPDATE2" name="SERINPDATE2" value="<?=!empty($data['SERINPDATE2']) ? date('Y-m-d', strtotime($data['SERINPDATE2'])) : date('Y-m-d'); ?>"/>
+                                    </div>
+
+                                    <div class="flex mb-1">
+                                        <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="CUSTOMERCODE_TXT"><?=checklang('CUSTOMERCODE')?></label>
+                                        <div class="relative w-3/12 mr-1">
+                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                    id="SERCUSTCD" name="SERCUSTCD" value="<?=isset($data['SERCUSTCD']) ? $data['SERCUSTCD']: ''; ?>"/>
                                             <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                id="SEARCHDIVISION">
+                                                id="SEARCHCUSTOMERS">
                                                 <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                                 </svg>
                                             </a>
                                         </div>
-                                        <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-6/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                    name="DIVISIONNAME" id="DIVISIONNAME" value="<?=!empty($data['DIVISIONNAME']) ? $data['DIVISIONNAME']: ''; ?>" readonly/>
+                                        <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                id="SERCUSTNAME" name="SERCUSTNAME" value="<?=isset($data['SERCUSTNAME']) ? $data['SERCUSTNAME']: ''; ?>" readonly/>
+                                        <div class="flex w-3/12 justify-end">
+                                            <button type="button" class="btn text-color inline-flex justify-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-3xl text-sm font-medium w-9/12 py-0.5"
+                                                    id="SEARCH" name="SEARCH"><?=checklang('SEARCH')?>
+                                                <svg class="w-4 h-4 ml-2 mt-0.5" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
-                                    
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"><?=checklang('CUSTOMERCODE')?></label>
-                                        <div class="relative w-4/12 mr-1">
-                                            <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300 req"
-                                                    name="CUSTOMERCD" id="CUSTOMERCD" value="<?=!empty($data['CUSTOMERCD']) ? $data['CUSTOMERCD']: ''; ?>" onchange="unRequired();" required/>
+
+                                    <!-- <div class="flex mb-1">
+                                        <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="PERSON_RESPONSE_TXT"><?=checklang('PERSON_RESPONSE')?></label>
+                                        <div class="relative w-3/12 mr-1">
+                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                    id="SERSTAFFCD" name="SERSTAFFCD" value="<?=isset($data['SERSTAFFCD']) ? $data['SERSTAFFCD']: ''; ?>"/>
                                             <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                id="SEARCHCUSTOMER">
+                                                id="SEARCHSTAFFS">
                                                 <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                                 </svg>
                                             </a>
                                         </div>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-5/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                name="CUSTOMERNAME" id="CUSTOMERNAME" value="<?=!empty($data['CUSTOMERNAME']) ? $data['CUSTOMERNAME']: ''; ?>" readonly/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('PERSON_RESPONSE')?></label>
-                                        <div class="relative w-4/12 mr-1">
-                                            <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300 req"
-                                                    name="STAFFCD" id="STAFFCD" value="<?=!empty($data['STAFFCD']) ? $data['STAFFCD']: ''; ?>" onchange="unRequired();" required/>
-                                            <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                id="SEARCHSTAFF">
-                                                <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                        <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                id="SERSTAFFNAME" name="SERSTAFFNAME" value="<?=isset($data['SERSTAFFNAME']) ? $data['SERSTAFFNAME']: ''; ?>" readonly/>
+                                        <div class="flex w-3/12 justify-end">
+                                            <button type="button" class="btn text-color inline-flex justify-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-3xl text-sm font-medium w-9/12 py-0.5"
+                                                    id="SEARCH" name="SEARCH"><?=checklang('SEARCH')?>
+                                                <svg class="w-4 h-4 ml-2 mt-0.5" aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                                 </svg>
-                                            </a>
+                                            </button>
                                         </div>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-6/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                name="STAFFNAME" id="STAFFNAME" value="<?=!empty($data['STAFFNAME']) ? $data['STAFFNAME']: ''; ?>" readonly/>
-                                    </div>
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                name="CUSTADDR1" id="CUSTADDR1" value="<?=!empty($data['CUSTADDR1']) ? $data['CUSTADDR1']: ''; ?>" readonly/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('CURRENCY')?></label>
-                                        <div class="relative w-4/12 mr-1">
-                                            <input type="text" class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
-                                                    name="CUSCURCD" id="CUSCURCD" value="<?=!empty($data['CUSCURCD']) ? $data['CUSCURCD']: ''; ?>"
-                                                    <?php if(!empty($data['ESTNO'])) { ?> style="background-color: whitesmoke; pointer-events: none;" readonly <?php } ?>/>
-                                            <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                <?php if(!empty($data['isPrint']) && $data['isPrint'] != 'off') { ?> id="xxx" <?php } else { ?> id="SEARCHCURRENCY" <?php } ?>>
-                                                <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <select id="BRANCHKBN" name="BRANCHKBN" class="text-control text-[12px] shadow-md border mr-1 px-3 h-7 w-3/12 text-left rounded-xl border-gray-300 read" readonly>
-                                            <option value=""></option>
-                                            <?php foreach ($BRANCH_KBN as $key => $item) { ?>
-                                                <option value="<?=$key ?>" <?=(!empty($data['BRANCHKBN']) && $data['BRANCHKBN'] == $key) ? 'selected' : '' ?>><?=$item ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                name="TAXID" id="TAXID" value="<?=!empty($data['TAXID']) ? $data['TAXID']: ''; ?>" readonly/>
-                                    </div>
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300 read"
-                                                name="CUSTADDR2" id="CUSTADDR2" value="<?=!empty($data['CUSTADDR2']) ? $data['CUSTADDR2']: ''; ?>" readonly/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('PRICEVALIDITY')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
-                                                name="ESTDLVCON1" id="ESTDLVCON1" oninput="this.value = stringReplacez(this.value);"
-                                                <?php if(!empty($data['ESTDLVCON1'])){ ?> value="<?=$data['ESTDLVCON1']; ?>"<?php } else { ?> value="" <?php }?>/>
-                                        <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
-                                    </div>
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"><?=checklang('TEL')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-3/12 py-2 px-3 mr-1 text-gray-700 border-gray-300"
-                                                name="ESTCUSTEL" id="ESTCUSTEL" oninput="this.value = stringReplacez(this.value);"
-                                                value="<?=!empty($data['ESTCUSTEL']) ? $data['ESTCUSTEL']: ''; ?>"/>
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1 text-center"><?=checklang('FAX')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300"
-                                                name="ESTCUSFAX" id="ESTCUSFAX" oninput="this.value = stringReplacez(this.value);"
-                                                value="<?=!empty($data['ESTCUSFAX']) ? $data['ESTCUSFAX']: ''; ?>"/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-2/12 pr-2 pt-1"><?=checklang('PAYMENTTERM')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
-                                                name="ESTDLVCON2" id="ESTDLVCON2" oninput="this.value = stringReplacez(this.value);"
-                                                <?php if(!empty($data['ESTDLVCON2'])){ ?> value="<?=$data['ESTDLVCON2']; ?>"<?php } else { ?> value="" <?php }?>/>
-                                        <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
-                                    </div>
-                                    <div class="flex w-6/12 px-1">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"><?=checklang('ATTENTION')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
-                                                name="ESTCUSSTAFF" id="ESTCUSSTAFF" value="<?=!empty($data['ESTCUSSTAFF']) ? $data['ESTCUSSTAFF']: ''; ?>"/>
-                                        <input type="hidden" name="SALETERM" id="SALETERM" value="<?=!empty($data['SALETERM']) ? $data['SALETERM']: ''; ?>"/>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </details>
                         </div>
-                        <!-- End Header -->
-                    </div>
-                    <!-- End Card -->
-                </div>
 
-                <div class="table">
-                    <div class="flex border border-gray-300 mx-2 p-1">
-                        <button type="button" class="inline-flex items-center justify-center w-10 h-8 mr-2 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 rounded-lg" id="add-row">+</button>
-                        <button type="button" class="inline-flex items-center justify-center w-10 h-8 mr-2 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 rounded-lg" id="delete-row">x</button>
-                    </div>
-                    <div id="table-area" class="overflow-scroll px-2 block h-[260px]">
-                        <table id="table" class="quote_table w-full border-collapse border border-slate-500">
-                            <thead class="sticky top-0 z-20 bg-gray-50">
-                                <tr class="border border-gray-600">
-                                    <th class="px-6 w-8 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('LINE')?></span>
-                                    </th>
-                                     <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('CODE')?></span>
-                                    </th>
-                                    <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DESCRIPTION')?></span>
-                                    </th>
-                                     <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('QUANTITY')?></span>
-                                    </th>
-                                     <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('UOM')?></span>
-                                    </th>
-                                    <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('UNIT_PRICE')?></span>
-                                    </th>
-
-                                    <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DISCOUNT')?></span>
-                                    </th>
-
-                                    <th class="px-6 text-center border border-slate-700">
-                                        <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('AMOUNT')?></span>
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="dvwdetail" class="divide-y divide-gray-200 dark:divide-gray-700"><?php 
-                                if(!empty($data['ITEM']))  { $minrow = count($data['ITEM']);
-                                    // $data['ITEM'] = array_combine(range(1, count($data['ITEM'])), array_values($data['ITEM']));
-                                    // print_r($data['ITEM']);
-                                    foreach ($data['ITEM'] as $key => $value) { ?>
-                                        <tr id="rowId<?=$key?>">
-                                            <td class="row-id text-center max-w-4 text-sm border border-slate-700" id="ROWNO<?=$key?>" name="ROWNO[]"><?=$key?></td>
-                                            <td class="max-w-24 text-sm border border-slate-700">
-                                                <div class="relative z-10">
-                                                    <input type="text" class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300"
-                                                            id="ITEMCD<?=$key?>" name="ITEMCD[]" onchange="findItemCode(event,<?=$key?>);" onkeyup="findItemCode(event, <?=$key?>);"
-                                                            value="<?=isset($value['ITEMCD']) ? $value['ITEMCD']: '';?>">
-                                                    <a class="search-tag absolute top-0 end-0 h-6 py-1.5 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                        id="searchitem<?=$key?>" onclick="searchItemIndex(<?=$key?>);">
-                                                        <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
-                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td class="max-w-32 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300"
-                                                        id="ITEMNAME<?=$key?>" name="ITEMNAME[]" value="<?=isset($value['ITEMNAME']) ? $value['ITEMNAME']: '' ?>"/>
-                                            </td>
-                                            <td class="max-w-8 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-right" 
-                                                        id="ESTLNQTY<?=$key?>" name="ESTLNQTY[]" value="<?=!empty($value['ESTLNQTY']) ? number_format(str_replace(',', '', $value['ESTLNQTY']), 2): '' ?>"
-                                                        onchange="calculateamt(<?=$key?>); this.value = num2digit(this.value);"
-                                                        oninput="this.value = stringReplacez(this.value);"/>
-                                            </td>
-                                            <td class="max-w-8 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-center read" 
-                                                        id="ITEMUNITTYP2<?=$key?>" name="ITEMUNITTYP2[]" value="<?=array_key_exists($value['ITEMUNITTYP'], $UNIT) ? $UNIT[$value['ITEMUNITTYP']]: '' ?>" readonly/>
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-center read hidden" 
-                                                        id="ITEMUNITTYP<?=$key?>" name="ITEMUNITTYP[]" value="<?=isset($value['ITEMUNITTYP']) ? $value['ITEMUNITTYP']: '' ?>" readonly/>
-                                            </td>
-                                            <td class="max-w-8 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-right" 
-                                                        id="ESTLNUNITPRC<?=$key?>" name="ESTLNUNITPRC[]" onchange="calculateamt(<?=$key?>); this.value = num4digit(this.value);" 
-                                                        value="<?=!empty($value['ESTLNUNITPRC']) ? number_format(str_replace(',', '', $value['ESTLNUNITPRC']), 4): '0.0000' ?>"
-                                                        oninput="this.value = stringReplacez(this.value);"/>
-                                            </td>
-                                            <td class="max-w-8 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-right" 
-                                                        id="ESTDISCOUNT<?=$key?>" name="ESTDISCOUNT[]" onchange="calculateamt(<?=$key?>); this.value = num4digit(this.value);" 
-                                                        value="<?=!empty($value['ESTDISCOUNT']) ? number_format($value['ESTDISCOUNT'], 4) : '0.0000' ?>"
-                                                        oninput="this.value = stringReplacez(this.value);"/>
-                                            </td>
-                                            <td class="max-w-8 text-sm border border-slate-700">
-                                                <input class="text-control text-sm shadow-md border rounded-xl h-6 w-full py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                        id="ESTLNAMTDISP<?=$key?>" name="ESTLNAMTDISP[]" value="<?=isset($value['ESTLNAMTDISP']) ? $value['ESTLNAMTDISP'] : '' ?>" readonly/>
-                                            </td>
-                                            <td class="hidden"><input class="w-16 read" id="ESTDISCOUNT2<?=$key?>" name="ESTDISCOUNT2[]"
-                                                value="<?=isset($value['ESTDISCOUNT2']) ? $value['ESTDISCOUNT2'] : '' ?>" readonly/></td>
-                                            <td class="hidden"><input class="w-16 read" id="ESTLNVAT<?=$key?>" name="ESTLNVAT[]"
-                                                value="<?=isset($value['ESTLNVAT']) ? $value['ESTLNVAT'] : '' ?>" readonly/></td>
-                                        </tr><?php
+                        <div id="table-search-area" class="overflow-scroll block mx-2 h-[58%]"> 
+                            <table id="table-search" class="w-full border-collapse border border-slate-500 divide-gray-200 tb-search" rules="cols" cellpadding="3" cellspacing="1">
+                                <thead class="sticky top-0 bg-gray-50">
+                                    <tr class="border border-gray-600 csv">
+                                        <th class="hidden"></th>
+                                        <th class="px-6 text-center border border-slate-700 text-left">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('ESTIMATE_NO'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('INPUT_DATE'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('CUSTOMERNAME'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('PRODUCTNAME'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('RECIPIENT'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('RECIPIENTNAME'); ?></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="searchdetail" class="divide-y divide-gray-200"><?php
+                                    if(!empty($data['SEARCHITEM'])) { $minsearchrow = count($data['SEARCHITEM']);
+                                        foreach($data['SEARCHITEM'] as $key => $value) { ?>
+                                        <tr class="divide-y divide-gray-200 cursor-pointer search-id csv" id="searchrow<?=$key?>">
+                                            <td class="hidden search-seq"><?=$key ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEORDERNO_TD<?=$key?>"><?=isset($value['SALEORDERNO']) ? $value['SALEORDERNO']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEISSUEDT_TD<?=$key?>"><?=isset($value['SALEISSUEDT']) ? $value['SALEISSUEDT']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSTOMERNAME_TD<?=$key?>"><?=isset($value['CUSTOMERNAME']) ? $value['CUSTOMERNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DELIVERYNAME_TD<?=$key?>"><?=isset($value['DELIVERYNAME']) ? $value['DELIVERYNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSCURDISP_TD<?=$key?>"><?=isset($value['CUSCURDISP']) ? $value['CUSCURDISP']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ESTNO_TD<?=$key?>"><?=isset($value['ESTNO']) ? $value['ESTNO']: '' ?></td>
+                                        </tr><?php 
+                                        }
                                     }
-                    
-                                } 
-                                for ($i = $minrow+1; $i <= $maxrow; $i++) { ?>
-                                    <tr class="row-empty" id="rowId<?=$i?>">
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                        <td class="h-6 border border-slate-700"></td>
-                                    </tr><?php
-                                }?>
-                            </tbody>
-                            <tfoot class="sticky bottom-0 z-20 pointer-events-none">
-                                <tr>
-                                    <td class="text-color h-6 text-[12px]" colspan="8"><?=str_repeat('&ensp;', 1).checklang('ROWCOUNT').str_repeat('&ensp;', 2);?><span id="rowcount" ><?=$minrow; ?></span></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-         
-                <div class="flex flex-col">
-                    <!-- Card -->
-                    <div class="p-1.5 inline-block align-middle">
-                        <!-- Header -->
-                        <div class="justify-between px-2 border border-gray-200 rounded-xl shadow-sm">
-                            <details class="p-1.5 w-full align-middle" open><!-- open -->
-                                <summary class="text-color mx-auto py-2 text-lg font-semibold"></summary>
-                                <div class="flex mb-1">
-                                    <div class="flex w-8/12">
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-8/12 py-2 px-3 text-gray-700 border-gray-300"
-                                            name="ESTREM1" id="ESTREM1" value="<?=!empty($data['ESTREM1']) ? $data['ESTREM1']: ''; ?>"/>
-                                    </div>
-                                    <div class="flex w-4/12">
-                                        <label class="text-color block text-sm w-6/12 pr-2 pt-1"><?=checklang('SUBTOTAL')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                name="S_TTL" id="S_TTL" value="<?=!empty($data['S_TTL']) ? number_format(str_replace(',', '', $data['S_TTL']), 2): '0.00'; ?>" readonly/>&nbsp;
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                name="CUSCURDISP" id="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-8/12">
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-8/12 py-2 px-3 text-gray-700 border-gray-300"
-                                            name="ESTREM2" id="ESTREM2" value="<?=!empty($data['ESTREM2']) ? $data['ESTREM2']: ''; ?>"/>
-                                        <?php if(!empty($data['SYSMSG'])) { ?><h5 class="w-4/12 pl-6 pt-1 text-red-500 font-semibold"><?=checklang('CANCELMSG')?></h5><?php } ?>
-                                    </div>
-                                    <div class="flex w-4/12">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"><?=checklang('DISCOUNT')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
-                                                name="DISCRATE" id="DISCRATE" value="<?=!empty($data['DISCRATE']) ? $data['DISCRATE']: '0'; ?>"
-                                               onchange="discount();" oninput="this.value = stringReplacez(this.value);"/>&nbsp;
-                                        <label class="text-color block text-sm w-1/12 pt-1 text-center">%</label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                name="DISCOUNTAMOUNT" id="DISCOUNTAMOUNT" value="<?=!empty($data['DISCOUNTAMOUNT']) ? number_format(str_replace(',', '', $data['DISCOUNTAMOUNT']), 2): '0.00'; ?>" readonly/>&nbsp;
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                name="CUSCURDISP" <?php if(!empty($data['CUSCURDISP'])){ ?> value="<?=$data['CUSCURDISP']; ?>"<?php } else { ?> value="" <?php }?> disabled/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-8/12">
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-8/12 py-2 px-3 text-gray-700 border-gray-300"
-                                            name="ESTREM3" id="ESTREM3" value="<?=!empty($data['ESTREM3']) ? $data['ESTREM3']: ''; ?>"/>
-                                    </div>
-                                    <div class="flex w-4/12">
-                                        <label class="text-color block text-sm w-6/12 pr-2 pt-1"><?=checklang('AFTERDISCOUNT')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                name="QUOTEAMOUNT" id="QUOTEAMOUNT" value="<?=!empty($data['QUOTEAMOUNT']) ? number_format(str_replace(',', '', $data['QUOTEAMOUNT']), 2): '0.00'; ?>" readonly/>&nbsp;
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                name="CUSCURDISP" <?php if(!empty($data['CUSCURDISP'])){ ?> value="<?=$data['CUSCURDISP']; ?>"<?php } else { ?> value="" <?php }?> disabled/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-8/12"></div>
-                                    <div class="flex w-4/12">
-                                        <label class="text-color block text-sm w-3/12 pr-2 pt-1"><?=checklang('VAT')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
-                                                name="VATRATE" id="VATRATE" onchange="vat();" value="<?=!empty($data['VATRATE']) ? $data['VATRATE']: ''; ?>"
-                                                oninput="this.value = stringReplacez(this.value);"/>&nbsp;
-                                        <label class="text-color block text-sm w-1/12 pt-1 text-center">%</label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                name="VATAMOUNT1" id="VATAMOUNT1" value="<?=!empty($data['VATAMOUNT1']) ? number_format(str_replace(',', '', $data['VATAMOUNT1']), 2): '0.00'; ?>" readonly/>
-                                        <input class="hidden" name="VATAMOUNT" id="VATAMOUNT" value="<?=!empty($data['VATAMOUNT']) ? number_format(str_replace(',', '', $data['VATAMOUNT']), 2): '0.00'; ?>" readonly/>&nbsp;
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                name="CUSCURDISP" <?php if(!empty($data['CUSCURDISP'])){ ?> value="<?=$data['CUSCURDISP']; ?>"<?php } else { ?> value="" <?php }?> disabled/>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-1">
-                                    <div class="flex w-8/12"></div>
-                                    <div class="flex w-4/12">
-                                        <label class="text-color block text-sm w-6/12 pr-2 pt-1"><?=checklang('TOTALAMOUNT')?></label>
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
-                                                name="T_AMOUNT" id="T_AMOUNT" value="<?=!empty($data['T_AMOUNT']) ? number_format(str_replace(',', '', $data['T_AMOUNT']), 2): '0.00'; ?>" readonly/>&nbsp;
-                                        <input type="text" class="text-control text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                name="CUSCURDISP" <?php if(!empty($data['CUSCURDISP'])){ ?> value="<?=$data['CUSCURDISP']; ?>"<?php } else { ?> value="" <?php }?> disabled/>
-                                    </div>
-                                </div>
-                            </details>
+                                    for ($i = $minsearchrow+1; $i <= $maxsearchrow; $i++) { ?>
+                                        <tr class="divide-y divide-gray-200 row-empty" id="searchrow<?=$i?>">
+                                            <td class="hidden search-seq"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
+                                        </tr><?php
+                                    } ?>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- End Header -->
-                    </div>
-                    <!-- End Card -->
-                </div>
 
-                <div class="flex mt-2">
-                    <div class="flex w-6/12 px-1">
-                        <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2" 
-                        id="COMMIT" name="COMMIT" <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_COMMIT'] != 'T') {?> hidden <?php }?>
-                        <?php if(!empty($data['SYSMSG'])) { ?> disabled <?php } ?>><?=checklang('COMMIT'); ?></button>
-                        <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2" 
-                        id="CANCEL" name="CANCEL" <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_CANCEL'] != 'T') {?> hidden <?php }?>
-                        <?php if(!empty($data['SYSMSG'])) { ?> disabled <?php } ?>><?=checklang('CANCEL'); ?></button>
-                        <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2" 
-                        id="PRINT" name="PRINT" <?php if(empty($data['isPrint']) || !empty($data['isPrint']) && $data['isPrint'] != 'on') { ?> disabled <?php } ?>><?=checklang('PRINT'); ?></button>
-                    </div>
-                    <div class="flex w-6/12 px-1 justify-end">
-                        <button type="reset" id="CLEAR" name="CLEAR" onclick="unsetSession(this.form);" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2"><?=checklang('CLEAR'); ?></button>
-                        <button type="button" id="END" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2"
-                        onclick="questionDialog(1, '<?=lang('question1')?>', '<?=lang('yes'); ?>', '<?=lang('no'); ?>');"><?=checklang('END'); ?></button>
-                    </div>
+                        <div class="flex p-2">
+                            <div class="flex w-6/12">
+                                <label class="text-color h-6 text-[12px]"><?=checklang('ROWCOUNT'); ?>  <span id="rowCountSearch" ><?=$minsearchrow ?></span></label>
+                            </div>
+                            <div class="flex w-6/12 justify-end">
+                                <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm font-bold px-5 py-0.5 text-center me-2"
+                                    id="CSV" name="CSV"><?=checklang('CSV'); ?></button>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Content Page -->
+                    <aside class="w-[50%] h-[95%] mx-1 rounded shadow-sm border-2 border-gray-200 right-side-<?=$appcode?>" id="form_data">
+                        <button type="button" class="p-1" id="right-side" onclick="javascript:toggleSideForm('<?=$appcode?>', 'right');">
+                            <svg class="fill-current opacity-75 w-6 h-6 transition-all duration-300 rotate-0" viewBox="0 0 256 512">
+                                <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
+                            </svg>
+                        </button> 
+
+                        <div class="flex px-4">
+                            <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2"
+                                    id="NEW" name="NEW" onclick="clearForm(); $('table#table-search tbody tr').not(this).removeClass('selected-row');"><?=checklang('NEW'); ?></button>
+                                <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2"
+                                    id="CLONEQUOTE" name="CLONEQUOTE" onclick=""><?=checklang('CLONE'); ?></button>
+                        </div>
+
+                        <div class="flex px-6 my-2">
+                            <div class="right-size flex w-full">
+                                <label class="text-color block text-sm font-semibold w-3/12 pl-4 pt-1"><?=checklang('ESTIMATE_NO')?></label>
+                                <div class="relative w-4/12 mx-2">
+                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                            id="ESTNO" name="ESTNO" value=""/>
+                                    <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none hidden"
+                                        id="SEARCHQUOTE">
+                                        <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <h5 class="w-5/12 pl-6 pt-1 text-red-500 font-semibold hidden" id="CANCELMSG"><?=checklang('CANCELMSG')?></h5>
+                                <input type="hidden" id="LINE" name="LINE" value="">
+                            </div>
+                        </div>
+
+                        <article class="w-full max-h-[80%] overflow-y-auto px-2">
+                            <div class="p-2 align-middle">
+                                <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquoteheader')?></summary>
+                                    <div class="right-size w-full">
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('QUOTE_DATE')?></label>
+                                            <input type="date" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                    id="ESTENTRYDT" name="ESTENTRYDT" value="<?=date('Y-m-d')?>"/>
+                                        </div>
+
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('DIVISIONCODE')?></label>
+                                            <div class="relative w-4/12">
+                                                <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                        id="DIVISIONCD" name="DIVISIONCD" value="" onchange="unRequired();" required/>
+                                                <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                    id="SEARCHDIVISION">
+                                                    <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-5/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                id="DIVISIONNAME" name="DIVISIONNAME" value="" readonly/>
+                                         </div>
+
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('PERSON_RESPONSE')?></label>
+                                            <div class="relative w-4/12">
+                                                <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                        id="STAFFCD" name="STAFFCD" value="" onchange="unRequired();" required/>
+                                                <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                    id="SEARCHSTAFF">
+                                                    <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-5/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                id="STAFFNAME" name="STAFFNAME" value="" readonly/>
+                                         </div>
+
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('CURRENCY')?></label>
+                                            <div class="relative w-4/12">
+                                                <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                        id="CUSCURCD" name="CUSCURCD" value=""/>
+                                                  <!-- <?php if(!empty($data['isPrint']) && $data['isPrint'] != 'off') { ?> id="xxx" <?php } else { ?> id="SEARCHCURRENCY" <?php } ?>> -->
+                                                <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                    id="SEARCHCURRENCY">
+                                                    <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-2 align-middle">
+                                        <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupcustomer')?></summary>
+                                            <div class="right-size w-full">
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('CUSTOMERCODE')?></label>
+                                                    <div class="relative w-4/12">
+                                                        <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                                id="CUSTOMERCD" name="CUSTOMERCD" value="" onchange="unRequired();" required/>
+                                                        <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                            id="SEARCHCUSTOMER">
+                                                            <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                    <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-5/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                        id="CUSTOMERNAME" name="CUSTOMERNAME" value="" readonly/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300 read"
+                                                           id="CUSTADDR1" name="CUSTADDR1" value="" readonly/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300 read"
+                                                           id="CUSTADDR2" name="CUSTADDR2" value="" readonly/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('BRANCH')?></label>
+                                                    <select class="text-control shadow-sm border h-7 w-4/12 px-3 text-[12px] rounded-xl border-gray-300 read" id="BRANCHKBN" name="BRANCHKBN">
+                                                        <option value=""></option>
+                                                        <?php foreach ($BRANCH_KBN as $key => $item) { ?>
+                                                            <option value="<?=$key?>"><?=$item ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('TAXID')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 read"
+                                                           id="TAXID" name="TAXID" value=""/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('TEL')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                           id="ESTCUSTEL" name="ESTCUSTEL" oninput="this.value = stringReplacez(this.value);" value=""/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('FAX')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                           id="ESTCUSFAX" name="ESTCUSFAX" oninput="this.value = stringReplacez(this.value);" value=""/>
+                                                </div>    
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('PRICEVALIDITY')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                           id="ESTDLVCON1" name="ESTDLVCON1" oninput="this.value = stringReplacez(this.value);" value=""/>
+                                                    <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
+                                                </div>   
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('PAYMENTTERM')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                           id="ESTDLVCON2" name="ESTDLVCON2" oninput="this.value = stringReplacez(this.value);" value=""/>
+                                                    <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
+                                                </div>   
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('ATTENTION')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                           id="ESTCUSSTAFF" name="ESTCUSSTAFF" value=""/>
+                                                    <input type="hidden" name="SALETERM" id="SALETERM" value="<?=!empty($data['SALETERM']) ? $data['SALETERM']: ''; ?>"/>
+                                                </div>
+                                            </div>
+                                        </details>
+                                    </div>
+
+                                    <div class="right-size w-full">
+                                        <div class="flex mb-1 mx-2 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('REMARKS')?></label>
+                                            <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                   id="ESTREM1" name="ESTREM1" value=""/>
+                                        </div>  
+
+                                        <div class="flex mb-1 mx-2 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('')?></label>
+                                            <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                   id="ESTREM2" name="ESTREM2" value=""/>
+                                        </div>    
+
+                                        <div class="flex mb-1 mx-2 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('')?></label>
+                                            <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                   id="ESTREM3" name="ESTREM3" value=""/>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div class="p-2 align-middle">
+                                <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquotedetail')?></summary>
+                                    <div class="p-2 align-middle">
+                                        <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquoteitem')?></summary>
+                                            <div id="table-area" class="overflow-scroll px-2 block h-[220px]">
+                                                <table id="table" class="quote_table w-full border-collapse border border-slate-500 divide-gray-200">
+                                                    <thead class="sticky top-0 bg-gray-50">
+                                                        <tr class="border border-gray-600 ">
+                                                            <th class="px-6 w-8 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('LINE')?></span>
+                                                            </th>
+                                                            <th class="px-16 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('CODE')?></span>
+                                                            </th>
+                                                            <th class="px-16 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DESCRIPTION')?></span>
+                                                            </th>
+                                                            <th class="px-6 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('QUANTITY')?></span>
+                                                            </th>
+                                                            <th class="px-6 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('UOM')?></span>
+                                                            </th>
+                                                            <th class="px-6 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('UNIT_PRICE')?></span>
+                                                            </th>
+                                                            <th class="px-6 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DISCOUNT')?></span>
+                                                            </th>
+                                                            <th class="px-6 text-center border border-slate-700">
+                                                                <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('AMOUNT')?></span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="dvwdetail" class="divide-y divide-gray-200"> <?php
+                                                        for ($i = $minrow+1; $i <= $maxrow; $i++) { ?>
+                                                            <tr class="divide-y divide-gray-200 row-empty" id="rowId<?=$i?>">
+                                                                <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="LINE_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CODE_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DESCRIPTION_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pr-1 text-sm border border-slate-700 text-right whitespace-nowrap" id="QUANTITY_TXT<?=$i?>"></td>
+                                                                <td class="h-6 text-sm border border-slate-700 text-center whitespace-nowrap" id="UOM_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pr-1 text-sm border border-slate-700 text-right whitespace-nowrap" id="UNIT_PRICE_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pr-1 text-sm border border-slate-700 text-right whitespace-nowrap" id="DISCOUNT_TXT<?=$i?>"></td>
+                                                                <td class="h-6 pr-1 text-sm border border-slate-700 text-right whitespace-nowrap" id="AMOUNT_TXT<?=$i?>"></td>
+
+                                                                <td class="hidden"><input class="hidden" id="ROWNO<?=$i?>" name="ROWNOZ[]" value="">
+                                                                <input class="hidden" id="ITEMCD<?=$i?>" name="ITEMCDZ[]" value="">
+                                                                <input class="hidden" id="ITEMNAME<?=$i?>" name="ITEMNAMEZ[]" value="">
+                                                                <input class="hidden" id="ESTLNQTY<?=$i?>" name="ESTLNQTYZ[]" value="">
+                                                                <input class="hidden" id="ITEMUNITTYP<?=$i?>" name="ITEMUNITTYPZ[]" value="">
+                                                                <input class="hidden" id="ESTLNUNITPRC<?=$i?>" name="ESTLNUNITPRCZ[]" value="">
+                                                                <input class="hidden" id="ESTDISCOUNT<?=$i?>" name="ESTDISCOUNTZ[]" value="">
+                                                                <input class="hidden" id="ESTLNAMTDISP<?=$i?>" name="ESTLNAMTDISPZ[]" value="">
+                                                                <input class="hidden" id="ESTDISCOUNT2<?=$i?>" name="ESTDISCOUNT2Z[]" value="">
+                                                                <input class="hidden" id="ESTLNVAT<?=$i?>" name="ESTLNVATZ[]" value=""></td>
+                                                            </tr><?php
+                                                        } ?>
+                                                    </tbody>
+                                                    <tfoot class="sticky bottom-0 z-20 pointer-events-none">
+                                                        <tr>
+                                                            <td class="text-color h-6 text-[12px]" colspan="11"><?=str_repeat('&emsp;', 2).checklang('ROWCOUNT').str_repeat('&ensp;', 2);?><span id="rowCount"><?=$minrow;?></span></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </details>
+                                    </div>
+
+                                    <div class="p-2 align-middle">
+                                        <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('grouptotal')?></summary>
+                                            <div class="right-size w-full">
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-6/12 pr-2 pt-1"><?=checklang('SUBTOTAL')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                           id="S_TTL" name="S_TTL" value=""/>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            id="CUSCURDISP" name="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly />
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('DISCOUNT')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
+                                                            id="DISCRATE" name="DISCRATE" value="0" onchange="calcDiscount();" oninput="this.value = stringReplacez(this.value);"/>&nbsp;
+                                                    <label class="text-color block text-sm w-1/12 pt-1 text-center">%</label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                            id="DISCOUNTAMOUNT" name="DISCOUNTAMOUNT" value=""/>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly />
+                                                </div>  
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-6/12 pr-2 pt-1"><?=checklang('AFTERDISCOUNT')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                           id="QUOTEAMOUNT" name="QUOTEAMOUNT" value=""/>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly />
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('VAT')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-md border rounded-xl h-7 w-2/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
+                                                            id="VATRATE" name="VATRATE" onchange="calcVat();" value="" oninput="this.value = stringReplacez(this.value);"/>&nbsp;
+                                                    <label class="text-color block text-sm w-1/12 pt-1 text-center">%</label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                            id="VATAMOUNT1" name="VATAMOUNT1" value=""/>
+                                                    <input class="hidden" name="VATAMOUNT" id="VATAMOUNT" value="0.00" readonly/>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly />
+                                                </div>    
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-6/12 pr-2 pt-1"><?=checklang('TOTALAMOUNT')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                           id="T_AMOUNT" name="T_AMOUNT" value=""/>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="<?=!empty($data['CUSCURDISP']) ? $data['CUSCURDISP']: ''; ?>" readonly />
+                                                </div>  
+                                            </div>                                                                                    
+                                        </details>
+                                    </div>
+
+                                    <div class="p-2 align-middle">
+                                        <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupitementry')?></summary>
+                                            <div class="right-size w-full">
+                                                <div class="flex my-2 px-2">
+                                                    <button type="button" class="btn text-color ctrl-read border-2 focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm font-bold px-5 py-0.5 text-center me-2"
+                                                            id="NEWITEM" name="NEWITEM" onclick="javascript:itemEntry();"><?=lang('newitems'); ?></button>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('LINE')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                        id="ROWNO" name="ROWNO" value="" readonly/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('ITEMCODE')?></label>
+                                                    <div class="relative w-4/12">
+                                                        <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                                id="ITEMCD" name="ITEMCD" value=""/>
+                                                        <a class="search-tag ctrl-read absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                            id="SEARCHITEM">
+                                                            <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                    <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-5/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                        id="ITEMNAME" name="ITEMNAME" value="" readonly/>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('QUANTITY')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
+                                                           id="SALELNQTY" name="SALELNQTY" value="" onchange="this.value = num2digit(this.value); calcAmount();" oninput="this.value = stringReplacez(this.value);"/>
+                                                    <select class="text-control shadow-sm border h-7 w-4/12 px-3 text-[12px] rounded-xl border-gray-300 read" id="ITEMUNITTYP" name="ITEMUNITTYP">
+                                                        <option value=""></option><?php 
+                                                        foreach ($UNIT as $key => $item) { ?>
+                                                            <option value="<?=$key?>"><?=$item ?></option><?php 
+                                                        } ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('UNIT_PRICE')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
+                                                           id="SALELNUNITPRC" name="SALELNUNITPRC" value="" onchange="this.value = num2digit(this.value); calcAmount();" oninput="this.value = stringReplacez(this.value);"/>
+                                                    <input class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="" readonly />
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('DISCOUNT')?></label>
+                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right"
+                                                           id="SALELNDISCOUNT" name="SALELNDISCOUNT" value="" onchange="this.value = num2digit(this.value); calcAmount();" oninput="this.value = stringReplacez(this.value);"/>
+                                                    <input class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="" readonly />
+                                                </div>
+
+                                                <div class="flex mb-1 pl-4">
+                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('AMOUNT')?></label>
+                                                    <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-right read"
+                                                           id="SALELNAMT" name="SALELNAMT" value="" onchange="this.value = num2digit(this.value);" oninput="this.value = stringReplacez(this.value);"/>
+                                                    <input class="text-control text-sm shadow-sm border rounded-xl h-7 w-2/12 ml-1 py-2 px-3 text-gray-700 border-gray-300 text-center read"
+                                                            name="CUSCURDISP" value="" readonly />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex my-2 px-2">
+                                                <button type="button" class="btn text-color ctrl-read border-2 focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm font-bold px-5 py-0.5 text-center me-2"
+                                                        id="SAVEITEM" name="SAVEITEM"><?=lang('saveitems'); ?></button>
+                                                <button type="button" class="btn text-color ctrl-read border-2 focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm font-bold px-5 py-0.5 text-center me-2"
+                                                        id="DELITEM" name="DELITEM"><?=lang('deleteitems'); ?></button>              
+                                            </div>
+                                        </details>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div class="flex p-2">
+                                <div class="flex w-6/12">
+                                    <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-1"
+                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_COMMIT'] != 'T') {?> hidden <?php }?>
+                                            id="COMMIT" name="COMMIT"><?=checklang('SAVE'); ?></button>
+                                    <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-1"
+                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_CANCEL'] != 'T') {?> hidden <?php }?>
+                                            id="CANCEL" name="CANCEL"><?=checklang('CANCEL'); ?></button>
+                                </div>
+                                <div class="flex w-6/12 px-1 justify-end">
+                                    <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-2" 
+                                            id="PRINT" name="PRINT"><?=checklang('PRINT'); ?></button>
+                                </div>
+                            </div>
+                        </article>
+                    </aside>
                 </div>
             </form>
         </main>
@@ -518,7 +724,7 @@
                 $('table tbody').append(newRow);
             }
 
-            document.getElementById('rowcount').innerHTML = index;
+            document.getElementById('rowCount').innerHTML = index;
 
             // ----- call Class search-tag -------//
             searchIcon();
@@ -548,7 +754,7 @@
                 unsetSessionItem(id);
                 id = null;
                 // console.log(index);
-                document.getElementById('rowcount').innerHTML = index;
+                document.getElementById('rowCount').innerHTML = index;
             }
             keepItemData();
         });

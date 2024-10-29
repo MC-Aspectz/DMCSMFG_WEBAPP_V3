@@ -202,6 +202,8 @@ async function action(method) {
         // console.log(response.data);
         $('#loading').hide();
         if (response.status == '200') {
+            updateTable();
+            document.getElementById('ITEMCD').value = '';
             return clearForm();
         }
     })
@@ -209,6 +211,82 @@ async function action(method) {
         // console.log(e);
         $('#loading').hide();
     });
+}
+
+function updateTable() {
+    let rec = document.getElementById('ROWNO').value;
+    if(rec != '') {
+        let ITEMTYP = document.getElementById('ITEMTYP');
+        let ITEMBOI = document.getElementById('ITEMBOI');
+        let ITEMUNITTYP = document.getElementById('ITEMUNITTYP');
+        // $('#ITEMCD_TD'+rec+'').html(document.getElementById('ITEMCD').value);
+        $('#ITEMNAME_TD'+rec+'').html(document.getElementById('ITEMNAME').value);
+        $('#ITEMSPEC_TD'+rec+'').html(document.getElementById('ITEMSPEC').value);
+        $('#ITEMDRAWNO_TD'+rec+'').html(document.getElementById('ITEMDRAWNO').value);
+        $('#ITEMTYPNAME_TD'+rec+'').html(ITEMTYP.options[ITEMTYP.selectedIndex].text);
+        $('#CATALOGNAME_TD'+rec+'').html(document.getElementById('CATALOGNAME').value);
+        $('#ITEMBOI_TD'+rec+'').html(ITEMBOI.options[ITEMBOI.selectedIndex].text);
+        $('#STORAGENAME_TD'+rec+'').html(document.getElementById('STORAGENAME').value);
+        $('#ITEMUNITTYP_TD'+rec+'').html(ITEMUNITTYP.options[ITEMUNITTYP.selectedIndex].text);
+
+        // document.getElementById('ITEMCD'+rec+'').value = document.getElementById('ITEMCD').value;
+        document.getElementById('ITEMNAME'+rec+'').value = document.getElementById('ITEMNAME').value;
+        document.getElementById('ITEMSPEC'+rec+'').value = document.getElementById('ITEMSPEC').value;
+        document.getElementById('ITEMDRAWNO'+rec+'').value = document.getElementById('ITEMDRAWNO').value;
+        document.getElementById('ITEMSEARCH'+rec+'').value = document.getElementById('ITEMSEARCH').value;
+        document.getElementById('ITEMTYP'+rec+'').value = document.getElementById('ITEMTYP').value;
+        document.getElementById('CATALOGCD'+rec+'').value = document.getElementById('CATALOGCD').value;
+        document.getElementById('CATALOGNAME'+rec+'').value = document.getElementById('CATALOGNAME').value;
+        document.getElementById('ITEMBOI'+rec+'').value = document.getElementById('ITEMBOI').value;
+        document.getElementById('MATERIALCD'+rec+'').value = document.getElementById('MATERIALCD').value;
+        document.getElementById('MATERIALNAME'+rec+'').value = document.getElementById('MATERIALNAME').value;
+        document.getElementById('ITEMWHTTYP'+rec+'').value = document.getElementById('ITEMWHTTYP').value; 
+        document.getElementById('ITEMUNITTYP'+rec+'').value = document.getElementById('ITEMUNITTYP').value;
+        document.getElementById('ITEMORDRULETYP'+rec+'').value = document.getElementById('ITEMORDRULETYP').value; 
+        document.getElementById('ITEMPOUNITTYP'+rec+'').value = document.getElementById('ITEMPOUNITTYP').value;
+        document.getElementById('SUPPLIERCD'+rec+'').value = document.getElementById('SUPPLIERCD').value;
+        document.getElementById('SUPPLIERNAME'+rec+'').value = document.getElementById('SUPPLIERNAME').value;
+        document.getElementById('WCCD'+rec+'').value = document.getElementById('WCCD').value;
+        document.getElementById('WCNAME'+rec+'').value = document.getElementById('WCNAME').value;
+        document.getElementById('STORAGECD'+rec+'').value = document.getElementById('STORAGECD').value;
+        document.getElementById('STORAGENAME'+rec+'').value = document.getElementById('STORAGENAME').value;
+        document.getElementById('ITEMUNITTYPDISP'+rec+'').value = ITEMUNITTYP.options[ITEMUNITTYP.selectedIndex].text;
+        document.getElementById('ITEMLEADTIME'+rec+'').value = document.getElementById('ITEMLEADTIME').value;
+        document.getElementById('ITEMINVPRICE'+rec+'').value = document.getElementById('ITEMINVPRICE').value;
+        document.getElementById('ITEMSTDPURPRICE'+rec+'').value = document.getElementById('ITEMSTDPURPRICE').value;
+        document.getElementById('ITEMSHOPPRICE'+rec+'').value = document.getElementById('ITEMSHOPPRICE').value;
+        document.getElementById('ITEMFIXORDER'+rec+'').value = document.getElementById('ITEMFIXORDER').value;
+        document.getElementById('ITEMMINORDER'+rec+'').value = document.getElementById('ITEMMINORDER').value;
+        document.getElementById('ITEMMINSTOCK'+rec+'').value = document.getElementById('ITEMMINSTOCK').value;
+        document.getElementById('ITEMINVCALCTYP'+rec+'').value = document.getElementById('ITEMINVCALCTYP').value;
+        document.getElementById('ITEMSTDSALEPRICE'+rec+'').value = document.getElementById('ITEMSTDSALEPRICE').value;
+        document.getElementById('ITEMMAKERTYP'+rec+'').value = document.getElementById('ITEMMAKERTYP').value;
+        document.getElementById('ITEMSTDSUPPLYPRICE'+rec+'').value = document.getElementById('ITEMSTDSUPPLYPRICE').value;
+        document.getElementById('ITEMCOSTTYP'+rec+'').value = document.getElementById('ITEMCOSTTYP').value;
+        document.getElementById('ITEMPACKTYP'+rec+'').value = document.getElementById('ITEMPACKTYP').value;
+        document.getElementById('ITEMORDERUNIT'+rec+'').value = document.getElementById('ITEMORDERUNIT').value;
+        document.getElementById('ITEMWEIGHT'+rec+'').value = document.getElementById('ITEMWEIGHT').value;
+        document.getElementById('ITEMCLEARANCETYP'+rec+'').value = document.getElementById('ITEMCLEARANCETYP').value;
+        document.getElementById('ITEMQTYINCASE'+rec+'').value = document.getElementById('ITEMQTYINCASE').value;
+
+        document.getElementById('ITEMFIFOLISTFLG'+rec+'').value = $('#ITEMFIFOLISTFLG:checked').val() ?? 'F';
+        document.getElementById('ITEMPHANTOMFLG'+rec+'').value = $('#ITEMPHANTOMFLG:checked').val() ?? 'F';
+        document.getElementById('ITEMINVFLG'+rec+'').value = $('#ITEMINVFLG:checked').val() ?? 'F';
+        document.getElementById('ITEMMASTERPLANFLG'+rec+'').value = $('#ITEMMASTERPLANFLG:checked').val() ?? 'F';
+        document.getElementById('ITEMSERIALLFLG'+rec+'').value = $('#ITEMSERIALLFLG:checked').val() ?? 'F';
+
+        document.getElementById('ITEMSTOPDT'+rec+'').value = document.getElementById('ITEMSTOPDT').value ? document.getElementById('ITEMSTOPDT').value.replaceAll('-', ''): '';
+
+        if(document.getElementById('OLDITEMIMGLOC').value != '') {
+            document.getElementById('ITEMIMGLOC'+rec+'').value = document.getElementById('OLDITEMIMGLOC').value;
+            document.getElementById('ITEMIMGPREVIEW'+rec+'').value = document.getElementById('OLDITEMIMGLOC').value;
+        } else {
+            if(document.getElementById('ITEMIMGLOC').files.length > 0 ) {
+                document.getElementById('ITEMIMGLOC'+rec+'').value = '/storage/' + $('#comcd').val() + '/image/itemmaster/' + $('#ITEMCD').val() + '.png';
+                document.getElementById('ITEMIMGPREVIEW'+rec+'').value = '/storage/' + $('#comcd').val() + '/image/itemmaster/' + $('#ITEMCD').val() + '.png';
+            }
+        }
+    }
 }
 
 async function exportCSV() {

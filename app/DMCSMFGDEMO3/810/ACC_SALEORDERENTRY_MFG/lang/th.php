@@ -15,7 +15,7 @@
             'groupsaledetail' => 'ข้อมูลรายละเอียดใบสั่งซื้อ',
             'groupsaleitem' => 'รายการใบสั่งซื้อ',
             'grouptotal' => 'รวม',
-            'groupitemremark' => '述べる',
+            'groupitemremark' => 'หมายเหตุ',
             'groupitementry' => 'แบบฟอร์มรายการสินค้า',
 
             'newitems' => 'รายการใหม่',

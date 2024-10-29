@@ -138,6 +138,9 @@
                                             <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('SPECIFICATE'); ?></span>
                                         </th>
                                         <th class="px-6 text-center border border-slate-700 text-center">
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DRAWING'); ?></span>
+                                        </th>
+                                        <th class="px-6 text-center border border-slate-700 text-center">
                                             <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('IM_TYPE'); ?></span>
                                         </th>
                                         <th class="px-6 text-center border border-slate-700 text-center">
@@ -159,18 +162,20 @@
                                         foreach($data['SEARCHITEM'] as $key => $value) { ?>
                                         <tr class="divide-y divide-gray-200 cursor-pointer search-id csv" id="searchrow<?=$key?>">
                                             <td class="hidden search-seq"><?=$key ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMCD']) ? $value['ITEMCD']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMNAME']) ? $value['ITEMNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMSPEC']) ? $value['ITEMSPEC']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMTYPNAME']) ? $value['ITEMTYPNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['CATALOGNAME']) ? $value['CATALOGNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMBOI']) ? $value['ITEMBOI']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['STORAGENAME']) ? $value['STORAGENAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ITEMUNITTYPDISP']) ? $value['ITEMUNITTYPDISP']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMCD_TD<?=$key?>"><?=isset($value['ITEMCD']) ? $value['ITEMCD']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMNAME_TD<?=$key?>"><?=isset($value['ITEMNAME']) ? $value['ITEMNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMSPEC_TD<?=$key?>"><?=isset($value['ITEMSPEC']) ? $value['ITEMSPEC']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMDRAWNO_TD<?=$key?>"><?=isset($value['ITEMDRAWNO']) ? $value['ITEMDRAWNO']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMTYPNAME_TD<?=$key?>"><?=isset($value['ITEMTYPNAME']) ? $value['ITEMTYPNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CATALOGNAME_TD<?=$key?>"><?=isset($value['CATALOGNAME']) ? $value['CATALOGNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMBOI_TD<?=$key?>"><?=isset($value['ITEMBOI']) ? $value['ITEMBOI']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="STORAGENAME_TD<?=$key?>"><?=isset($value['STORAGENAME']) ? $value['STORAGENAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ITEMUNITTYP_TD<?=$key?>"><?=isset($value['ITEMUNITTYPDISP']) ? $value['ITEMUNITTYPDISP']: '' ?></td>
   
                                             <input type="hidden" id="ITEMCD<?=$key?>" value="<?=isset($value['ITEMCD']) ? $value['ITEMCD']: '' ?>">
                                             <input type="hidden" id="ITEMNAME<?=$key?>" value="<?=isset($value['ITEMNAME']) ? $value['ITEMNAME']: '' ?>">
                                             <input type="hidden" id="ITEMSPEC<?=$key?>" value="<?=isset($value['ITEMSPEC']) ? $value['ITEMSPEC']: '' ?>">
+                                            <input type="hidden" id="ITEMDRAWNO<?=$key?>" value="<?=isset($value['ITEMDRAWNO']) ? $value['ITEMDRAWNO']: '' ?>">
                                             <input type="hidden" id="ITEMTYPNAME<?=$key?>" value="<?=isset($value['ITEMTYPNAME']) ? $value['ITEMTYPNAME']: '' ?>">
                                             <input type="hidden" id="CATALOGCD<?=$key?>" value="<?=isset($value['CATALOGCD']) ? $value['CATALOGCD']: '' ?>">
                                             <input type="hidden" id="CATALOGNAME<?=$key?>" value="<?=isset($value['CATALOGNAME']) ? $value['CATALOGNAME']: '' ?>">
@@ -230,6 +235,7 @@
                                             <td class="h-6 border border-slate-700"></td>
                                             <td class="h-6 border border-slate-700"></td>
                                             <td class="h-6 border border-slate-700"></td>
+                                            <td class="h-6 border border-slate-700"></td>
                                         </tr><?php
                                     } ?>
                                 </tbody>
@@ -281,6 +287,7 @@
                         </div>
 
                         <article class="w-full max-h-[80%] overflow-y-auto px-2" id="form_data">
+                            <input type="hidden" id="ROWNO" name="ROWNO" value="">
                             <div class="p-2 align-middle">
                                 <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
                                     <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupitem')?></summary>
@@ -295,6 +302,12 @@
                                             <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('SPECIFICATE')?></label>
                                             <input class="text-control text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
                                                    type="text" id="ITEMSPEC" name="ITEMSPEC" value=""/>
+                                        </div>
+
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('DRAWING')?></label>
+                                            <input class="text-control text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                   type="text" id="ITEMDRAWNO" name="ITEMDRAWNO" value=""/>
                                         </div>
 
                                         <div class="flex mb-1 pl-4">
@@ -821,9 +834,11 @@
                     table.rows[rec].classList.toggle('selected');
                 }
                 // console.log(rec);
+                document.getElementById('ROWNO').value = rec;
                 document.getElementById('ITEMCD').value = document.getElementById('ITEMCD'+rec+'').value;
                 document.getElementById('ITEMNAME').value = document.getElementById('ITEMNAME'+rec+'').value;
                 document.getElementById('ITEMSPEC').value = document.getElementById('ITEMSPEC'+rec+'').value;
+                document.getElementById('ITEMDRAWNO').value = document.getElementById('ITEMDRAWNO'+rec+'').value;
                 document.getElementById('ITEMSEARCH').value = document.getElementById('ITEMSEARCH'+rec+'').value;
                 document.getElementById('ITEMTYP').value = document.getElementById('ITEMTYP'+rec+'').value;
                 document.getElementById('CATALOGCD').value = document.getElementById('CATALOGCD'+rec+'').value;

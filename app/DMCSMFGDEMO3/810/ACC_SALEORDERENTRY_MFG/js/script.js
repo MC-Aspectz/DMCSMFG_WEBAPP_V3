@@ -299,6 +299,7 @@ async function action(method) {
             if(method == 'COMMIT') {
                 let result = response.data;
                 if(objectArray(result)) {
+                    updateTable();
                     document.getElementById('SALEORDERNO').value = result.SALEORDERNO;;
                 } else {
                     return getMessage(result.replace('ERRO:',''));
@@ -334,6 +335,21 @@ async function printed() {
         // console.log(e);
         document.getElementById('loading').style.display = 'none';
     });
+}
+
+function updateTable() {
+
+    let rec= document.getElementById('LINE').value;
+    if(rec != '') {
+        // $('#SALEORDERNO_TD'+rec+'').html(document.getElementById('SALEORDERNO').value);
+        $('#SALEISSUEDT_TD'+rec+'').html(document.getElementById('SALEISSUEDT').value.replaceAll('-', '/'));
+        $('#CUSTOMERNAME_TD'+rec+'').html(document.getElementById('CUSTOMERNAME').value);
+        $('#DELIVERYNAME_TD'+rec+'').html(document.getElementById('DELIVERYNAME').value);
+        $('#CUSCURDISP_TD'+rec+'').html(document.getElementById('CUSCURDISP').value);
+        $('#ESTNO_TD'+rec+'').html(document.getElementById('ESTNO').value);
+        $('#DIVISIONNAME_TD'+rec+'').html(document.getElementById('DIVISIONNAME').value);
+        $('#STAFFNAME_TD'+rec+'').html(document.getElementById('STAFFNAME').value);
+    }
 }
 
 async function exportCSV() {

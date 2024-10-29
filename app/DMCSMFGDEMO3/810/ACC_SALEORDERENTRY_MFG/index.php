@@ -167,14 +167,14 @@
                                         foreach($data['SEARCHITEM'] as $key => $value) { ?>
                                         <tr class="divide-y divide-gray-200 cursor-pointer search-id csv" id="searchrow<?=$key?>">
                                             <td class="hidden search-seq"><?=$key ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['SALEORDERNO']) ? $value['SALEORDERNO']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['SALEISSUEDT']) ? $value['SALEISSUEDT']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['CUSTOMERNAME']) ? $value['CUSTOMERNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['DELIVERYNAME']) ? $value['DELIVERYNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['CUSCURDISP']) ? $value['CUSCURDISP']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['ESTNO']) ? $value['ESTNO']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['DIVISIONNAME']) ? $value['DIVISIONNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap"><?=isset($value['STAFFNAME']) ? $value['STAFFNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEORDERNO_TD<?=$key?>"><?=isset($value['SALEORDERNO']) ? $value['SALEORDERNO']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEISSUEDT_TD<?=$key?>"><?=isset($value['SALEISSUEDT']) ? $value['SALEISSUEDT']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSTOMERNAME_TD<?=$key?>"><?=isset($value['CUSTOMERNAME']) ? $value['CUSTOMERNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DELIVERYNAME_TD<?=$key?>"><?=isset($value['DELIVERYNAME']) ? $value['DELIVERYNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSCURDISP_TD<?=$key?>"><?=isset($value['CUSCURDISP']) ? $value['CUSCURDISP']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ESTNO_TD<?=$key?>"><?=isset($value['ESTNO']) ? $value['ESTNO']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DIVISIONNAME_TD<?=$key?>"><?=isset($value['DIVISIONNAME']) ? $value['DIVISIONNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="STAFFNAME_TD<?=$key?>"><?=isset($value['STAFFNAME']) ? $value['STAFFNAME']: '' ?></td>
                                         </tr><?php 
                                         }
                                     }
@@ -233,6 +233,7 @@
                                     </a>
                                 </div>
                                 <h5 class="w-5/12 pl-6 pt-1 text-red-500 font-semibold hidden" id="CANCELMSG"><?=checklang('CANCELMSG')?></h5>
+                                <input type="hidden" id="LINE" name="LINE" value="">
                             </div>
                         </div>
 
@@ -546,7 +547,7 @@
                                                     </tbody>
                                                     <tfoot class="sticky bottom-0 z-20 pointer-events-none">
                                                         <tr>
-                                                            <td class="text-color h-6 text-[12px]" colspan="11"><?=str_repeat('&emsp;', 2).checklang('ROWCOUNT').str_repeat('&ensp;', 2);?><span id="rowCount" ><?=$minrow; ?></span></td>
+                                                            <td class="text-color h-6 text-[12px]" colspan="11"><?=str_repeat('&emsp;', 2).checklang('ROWCOUNT').str_repeat('&ensp;', 2);?><span id="rowCount"><?=$minrow;?></span></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -708,10 +709,10 @@
                             <div class="flex p-2">
                                 <div class="flex w-6/12">
                                     <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-1"
-                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_INSERT'] != 'T') {?> hidden <?php }?>
+                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_COMMIT'] != 'T') {?> hidden <?php }?>
                                             id="COMMIT" name="COMMIT"><?=checklang('SAVE'); ?></button>
                                     <button type="button" class="btn text-color border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-1 text-center me-2 mb-1"
-                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_DELETE'] != 'T') {?> hidden <?php }?>
+                                            <?php if(!empty($data['SYSPVL']) && $data['SYSPVL']['SYSVIS_CANCEL'] != 'T') {?> hidden <?php }?>
                                             id="CANCEL" name="CANCEL"><?=checklang('CANCEL'); ?></button>
                                 </div>
                                 <div class="flex w-6/12 px-1 justify-end">
@@ -776,9 +777,9 @@
                 tb_search.rows[rec].classList.toggle('selected-row');
                 let SONo = items.eq(1).text();
                 clearForm();
+                document.getElementById('LINE').value = rec;
                 await getElement('SALEORDERNO', SONo);
             }
-         
         });
 
         $(document).on('click', '.so_table tbody tr', function(event) {

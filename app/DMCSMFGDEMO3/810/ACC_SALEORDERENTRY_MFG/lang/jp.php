@@ -9,18 +9,18 @@
 
             'searchcondition' => '検索条件',
 
-            'groupsaleheader' => '販売注文ヘッダーデータ'、
-            'groupcustomer' => '顧客'、
-            'grouprecipient' => '受取人'、
-            'groupsaledetail' => '販売注文詳細データ'、
-            'groupsaleitem' => '販売注文商品'、
-            'grouptotal' => '合計'、
-            'groupitemremark' => 'Conditions',
-            'groupitementry' => '商品入力フォーム'、
+            'groupsaleheader' => '販売注文ヘッダーデータ',
+            'groupcustomer' => '顧客',
+            'grouprecipient' => '受取人',
+            'groupsaledetail' => '販売注文詳細データ',
+            'groupsaleitem' => '販売注文商品',
+            'grouptotal' => '合計',
+            'groupitemremark' => '述べる',
+            'groupitementry' => '商品入力フォーム',
 
-            'newitems' => '新規アイテム'、
-            'saveitems' => 'アイテムの保存'、
-            'deleteitems' => 'アイテムの削除'、
+            'newitems' => '新規アイテム',
+            'saveitems' => 'アイテムの保存',
+            'deleteitems' => 'アイテムの削除',
             
             'yes' => 'はい',
             'no' => 'いいえ',
