@@ -115,8 +115,10 @@ if(!empty($_GET)) {
 
 if (isset($_POST['action'])) {
     if ($_POST['action'] == 'unsetsession') { unsetSessionData(); }
-    if ($_POST['action'] == 'unsetsessionItem') {  unsetSesstionItem($_POST['lineIndex']); }
     if ($_POST['action'] == 'keepdata') { setOldValue(); }
+
+    if ($_POST['action'] == 'SEARCH') { searchQuote(); }
+   
     if ($_POST['action'] == 'keepItemData') { setItemValue(); }
     if ($_POST['action'] == 'DIVISIONCD') { getDivision(); }
     if ($_POST['action'] == 'CUSTOMERCD') { getCustomer(); }
@@ -158,6 +160,26 @@ setSessionData('UNIT', $UNIT);
 // print_r($data['DRPLANG']);
 // echo '</pre>';
 // --------------------------------------------------------------------------//
+
+function searchSO() {
+    $data['SEARCHITEM'] = array();
+    $javafunc = new QuoteEntryMFG;
+    $data['P1'] = isset($_POST['SERESTNO1']) ? $_POST['SERESTNO1']: '';
+    $data['P2'] = isset($_POST['SERESTNO2']) ? $_POST['SERESTNO2']: '';
+    $data['P3'] = isset($_POST['SERINPDATE1']) ? str_replace('-', '', $_POST['SERINPDATE1']): '';
+    $data['P3'] = isset($_POST['SERINPDATE2']) ? str_replace('-', '', $_POST['SERINPDATE2']): '';
+    $data['P5'] = isset($_POST['SERCUSTCD']) ? $_POST['SERCUSTCD']: '';
+    $search = $javafunc->searchSO($data['P1'], $data['P2'], $data['P3'],  $data['P3'],  $data['P5']);
+    if(!empty($search)) {
+        $data['SEARCHITEM'] = $search; 
+    }
+    setSessionArray($data);
+    if(checkSessionData()) { $data = getSessionData(); }
+    // echo '<pre>';
+    // print_r($data['SEARCHITEM']);
+    // echo '</pre>';
+}
+
 function getDivision() {
     $javafunc = new QuoteEntryMFG;
     $DIVISIONCD = isset($_POST['DIVISIONCD']) ? $_POST['DIVISIONCD']: '';
@@ -507,7 +529,7 @@ function setItemValue() {
 
 /// add session data of item 
 function setSessionArray($arr){
-    $keepField = array( 'SYSPVL', 'TXTLANG', 'DRPLANG', 'ESTNO', 'ESTNOCLONE', 'DIVISIONCD', 'DIVISIONNAME', 'ESTENTRYDT', 'CUSTOMERCD', 'BRANCHKBN', 'TAXID', 'CUSCURCD', 'CUSTOMERNAME',
+    $keepField = array( 'SYSPVL', 'TXTLANG', 'DRPLANG', 'SEARCHITEM', 'ESTNO', 'ESTNOCLONE', 'DIVISIONCD', 'DIVISIONNAME', 'ESTENTRYDT', 'CUSTOMERCD', 'BRANCHKBN', 'TAXID', 'CUSCURCD', 'CUSTOMERNAME',
                         'CUSTADDR1', 'CUSTADDR2', 'ESTCUSSTAFF', 'ESTCUSTEL', 'ESTCUSFAX', 'STAFFCD', 'STAFFNAME', 'ESTDLVCON1', 'ESTDLVCON2', 'ITEM', 'isPrint',
                         'CUSCURDISP', 'ESTREM1', 'ESTREM2', 'ESTREM3', 'S_TTL', 'DISCRATE', 'DISCOUNTAMOUNT', 'QUOTEAMOUNT', 'VATRATE', 'VATAMOUNT', 'VATAMOUNT1', 'T_AMOUNT', 'SYSMSG',
                         'ROWCOUNTER', 'COMPNTH', 'COMPNEN', 'ADDR1', 'ADDR2', 'TELTH', 'FAXTH', 'ADDREN1', 'ADDREN2', 'TELO', 'FAXO', 'ATNAME', 'SALETERM',

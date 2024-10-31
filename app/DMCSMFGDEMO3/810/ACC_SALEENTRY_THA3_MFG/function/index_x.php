@@ -60,7 +60,9 @@ $syslogic = new Syslogic;
 $javaFunc = new AccSaleEntryMFG;
 $systemName = strtolower($appcode);
 $minrow = 0;
-$maxrow = 8;
+$maxrow = 6;
+$minsearchrow = 0;
+$maxsearchrow = 16;
 
 if(!empty($_GET)) {
     if(!empty($_GET['SALETRANNO'])) {

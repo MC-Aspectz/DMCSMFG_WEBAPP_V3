@@ -2,18 +2,31 @@
     function lang($msg) {
 
         $lang = [
-            'close' => '近い',
-            'clear' => 'クリア',
             'ERRO_NOCURCD' => 'ERRO_NOCURCD',
             'ERRO_NO_CUTOMER' => 'ERRO_NO_CUTOMER',
             'ERRO_SALEORDERNO' => 'ERRO_SALEORDERNO',
             'WARN_CANCALEDQUOTE' => 'WARN_CANCALEDQUOTE',
+
+            'searchcondition' => '検索条件',
+
+            'groupsaleheader' => '請求書/販売伝票ヘッダーデータ',
+            'groupcustomer' => '顧客',
+            'groupsaledetail' => '請求書/販売伝票詳細データ',
+            'groupsaleitem' => '請求書/販売券項目',
+            'grouptotal' => '合計',
+            'groupitemremark' => '述べる',
+            'groupitementry' => '商品入力フォーム',
+
+            'newitems' => '新規アイテム',
+            'saveitems' => 'アイテムの保存',
+            'deleteitems' => 'アイテムの削除',
+            
             'yes' => 'はい',
             'no' => 'いいえ',
             'ok' => 'Ok',
-            'nono' => 'いいえ',
+            'close' => '近い', 
+
             'canceled' => 'キャンセル。',
-            'setofdocuments' => 'Documents are issued as a set',
             
             'question1' => 'このプロセスを終了しますか ?',
             'question2' => 'データをキャンセルしますか ？ （解約処理後のデータの再利用はできません。）',

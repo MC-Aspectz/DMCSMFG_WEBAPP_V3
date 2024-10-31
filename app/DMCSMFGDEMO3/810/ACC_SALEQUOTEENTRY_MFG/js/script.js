@@ -5,18 +5,12 @@ const SEARCHDIVISION = $('#SEARCHDIVISION');
 const SEARCHCUSTOMER = $('#SEARCHCUSTOMER');
 const SEARCHCURRENCY = $('#SEARCHCURRENCY');
 const SEARCHSTAFF = $('#SEARCHSTAFF');
-// const CLOSEPAGE = $('#CLOSEPAGE');
 
 SEARCHQUOTE.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHQUOTE/index.php?page=ACC_SALEQUOTEENTRY_MFG', 'authWindow', 'width=1200,height=600');});
-
 CLONEQUOTE.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHQUOTE/index.php?page=ACC_SALEQUOTEENTRY_MFG_CLONE', 'authWindow', 'width=1200,height=600');});
-
 SEARCHDIVISION.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHDIVISION/index.php?page=ACC_SALEQUOTEENTRY_MFG', 'authWindow', 'width=1200,height=600');});
-
 SEARCHCUSTOMER.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHCUSTOMER/index.php?page=ACC_SALEQUOTEENTRY_MFG', 'authWindow', 'width=1200,height=600');});
-
 SEARCHCURRENCY.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHCURRENCY/index.php?page=ACC_SALEQUOTEENTRY_MFG', 'authWindow', 'width=1200,height=600');});
-
 SEARCHSTAFF.click(function(e) { e.preventDefault(); winopened = window.open($('#sessionUrl').val() + '/guide/'+ $('#comcd').val() +'/SEARCHSTAFF/index.php?page=ACC_SALEQUOTEENTRY_MFG', 'authWindow', 'width=1200,height=600');});
 
 const serach_icon = [SEARCHQUOTE, SEARCHDIVISION, SEARCHCUSTOMER, SEARCHCURRENCY, SEARCHSTAFF];
@@ -27,7 +21,6 @@ const DIVISIONCD = $('#DIVISIONCD');
 const CUSTOMERCD = $('#CUSTOMERCD');
 const CUSCURCD = $('#CUSCURCD');
 const STAFFCD = $('#STAFFCD');
-const input_serach = [DIVISIONCD, CUSTOMERCD, CUSCURCD, STAFFCD];
 
 // form
 const form = document.getElementById('quoteentryMFG');
@@ -37,19 +30,20 @@ const COMMIT = $('#COMMIT');
 const CANCEL = $('#CANCEL');
 const PRINT = $('#PRINT');
 
-for (const input of input_serach) {
-    input.on('keyup change', function (e) {
-        if ((e.type === 'change') || (e.key === 'Enter' || e.keyCode === 13)) {
-            keepData();
-        }
-    });
-}
-
 for (const icon of serach_icon) {
     icon.click(function () {
         keepData();
     });
 }
+
+SEARCH.click(async function() {
+    $('#loading').show();
+    const action = document.createElement('input');
+    action.id = 'action'; action.name = 'action';
+    action.type = 'hidden'; action.value = 'SEARCH';
+    form.appendChild(action);
+    form.submit();
+});
 
 COMMIT.click(function () {
   // check validate form

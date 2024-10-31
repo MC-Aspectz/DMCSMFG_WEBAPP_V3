@@ -2,18 +2,31 @@
     function lang($msg) {
 
         $lang = [
-            'clear' => 'ล้าง',
-            'close' => 'ปิด', 
             'ERRO_NOCURCD' => 'ERRO_NOCURCD',
             'ERRO_NO_CUTOMER' => 'ERRO_NO_CUTOMER',
             'ERRO_SALEORDERNO' => 'ERRO_SALEORDERNO',
             'WARN_CANCALEDQUOTE' => 'WARN_CANCALEDQUOTE',
+
+            'searchcondition' => 'เงื่อนไขการค้นหา'
+
+            'groupsaleheader' => 'ข้อมูลส่วนหัวใบแจ้งหนี้/ใบกำกับสินค้าขาย',
+            'groupcustomer' => 'ลูกค้า',
+            'groupsaledetail' => 'ข้อมูลรายละเอียดใบแจ้งหนี้/ใบกำกับสินค้าขาย',
+            'groupsaleitem' => 'รายการใบแจ้งหนี้/ใบกำกับสินค้าขาย',
+            'grouptotal' => 'รวม',
+            'groupitemremark' => 'หมายเหตุ',
+            'groupitementry' => 'แบบฟอร์มรายการสินค้า',
+
+            'newitems' => 'รายการใหม่',
+            'saveitems' => 'บันทึกรายการ',
+            'deleteitems' => 'ลบรายการ',
+
             'yes' => 'ใช่',
             'no' => 'ไม่',
             'ok' => 'Ok',
-            'nono' => 'ไม่',
+            'close' => 'ปิด',
+            
             'canceled' => 'ยกเลิกแล้ว',
-            'setofdocuments' => 'เอกสารออกเป็นชุด',
                     
             'question1' => 'คุณต้องการสิ้นสุดกระบวนการนี้หรือไม่ ?',
             'question2' => 'คุณต้องการยกเลิกข้อมูลหรือไม่ ? (หลังจากดำเนินการยกเลิกแล้ว จะไม่สามารถนำข้อมูลกลับมาใช้ใหม่ได้)',

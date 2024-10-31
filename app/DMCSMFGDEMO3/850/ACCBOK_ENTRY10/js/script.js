@@ -63,10 +63,6 @@ async function getSearch(code, value) {
     return window.location.href = $('#sessionUrl').val() + '/app/'+ $('#comcd').val() +'/850/ACCBOK_ENTRY10/index.php?'+code+'=' + value;
 }
 
-CLOSEPAGE.click(function () {
-  return programDelete();
-});
-
 COMMIT.click(function() {
     // check validate form
     if (!form.reportValidity()) {

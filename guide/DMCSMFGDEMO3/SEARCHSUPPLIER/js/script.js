@@ -47,12 +47,14 @@ $('#back').on('click', function() {
 
 function HandleResult(result) {
     try {
-        if(page == 'ACC_PURCHSEORDERENTRY_THA' || page == 'ACC_RECEIVEPURCHASE_THA' || page == 'ACC_PURCHASEBILLSLIP' || page == 'ACC_PAYMENTENTRY3_THARD' || page == 'ACC_WHTMETHOD2' || page == 'ITEMMASTER' || page == 'ITEMMASTER_MFG' || page == 'ACC_GENERALVO_THARD' || page == 'ACC_ADJUSTVO_THA' || page == 'ACC_ADJUSTVO_ONLY_THA' || page == 'ACC_PETTYCASHVO_THA') {
-            window.opener.HandlePopupResult('SUPPLIERCD', result);
+        // if(page == 'ACC_PURCHSEORDERENTRY_THA' || page == 'ACC_RECEIVEPURCHASE_THA' || page == 'ACC_PURCHASEBILLSLIP' || page == 'ACC_PAYMENTENTRY3_THARD' || page == 'ACC_WHTMETHOD2' || page == 'ITEMMASTER' || page == 'ITEMMASTER_MFG' || page == 'ACC_GENERALVO_THARD' || page == 'ACC_ADJUSTVO_THA' || page == 'ACC_ADJUSTVO_ONLY_THA' || page == 'ACC_PETTYCASHVO_THA') {
+        //     window.opener.HandlePopupResult('SUPPLIERCD', result);
+        if(page == 'ACC_PURCHASEREQUISITION_THA') {
+            window.opener.HandlePopupResult('SUPCD', result);
         } else if(page == 'ACC_OUTSTANDINGAP' || page == 'SEARCHPURCHASE' || page == 'SEARCHGL') {
             window.opener.HandlePopupResultIndex('SUPPLIERCD', result, index);
         } else {
-            window.opener.HandlePopupResult('SUPCD', result);
+            window.opener.HandlePopupResult('SUPPLIERCD', result);
         }
     } catch (err) {
         // console.log(err);

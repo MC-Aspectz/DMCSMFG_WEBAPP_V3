@@ -9,11 +9,11 @@
 
             'searchcondition' => 'เงื่อนไขการค้นหา'
 
-            'groupsaleheader' => 'ข้อมูลส่วนหัวของใบสั่งซื้อ',
+            'groupsaleheader' => 'ข้อมูลส่วนหัวของใบสำคัญขาย',
             'groupcustomer' => 'ลูกค้า',
             'grouprecipient' => 'ผู้รับ',
-            'groupsaledetail' => 'ข้อมูลรายละเอียดใบสั่งซื้อ',
-            'groupsaleitem' => 'รายการใบสั่งซื้อ',
+            'groupsaledetail' => 'ข้อมูลรายละเอียดใบสำคัญขาย',
+            'groupsaleitem' => 'รายการใบสำคัญขาย',
             'grouptotal' => 'รวม',
             'groupitemremark' => 'หมายเหตุ',
             'groupitementry' => 'แบบฟอร์มรายการสินค้า',

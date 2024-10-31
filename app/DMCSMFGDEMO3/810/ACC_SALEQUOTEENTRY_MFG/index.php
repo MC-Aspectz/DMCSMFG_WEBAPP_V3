@@ -89,8 +89,25 @@
                                               id="SERINPDATE2" name="SERINPDATE2" value="<?=!empty($data['SERINPDATE2']) ? date('Y-m-d', strtotime($data['SERINPDATE2'])) : date('Y-m-d'); ?>"/>
                                     </div>
 
-                                    <div class="flex mb-1">
+                                    <!-- <div class="flex mb-1">
                                         <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="CUSTOMERCODE_TXT"><?=checklang('CUSTOMERCODE')?></label>
+                                        <div class="relative w-3/12 mr-1">
+                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
+                                                    id="SERCUSTCD" name="SERCUSTCD" value="<?=isset($data['SERCUSTCD']) ? $data['SERCUSTCD']: ''; ?>"/>
+                                            <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
+                                                id="SEARCHCUSTOMERS">
+                                                <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
+                                                id="SERCUSTNAME" name="SERCUSTNAME" value="<?=isset($data['SERCUSTNAME']) ? $data['SERCUSTNAME']: ''; ?>" readonly/>
+                                        <div class="flex w-3/12"></div>
+                                    </div> -->
+
+                                    <div class="flex mb-1">
+                                        <label class="text-color block text-sm font-normal w-2/12 pr-1 pt-1" id="CUSTOMERCODE_TXT"><?=checklang('CUSTOMERCODE')?></label>
                                         <div class="relative w-3/12 mr-1">
                                             <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
                                                     id="SERCUSTCD" name="SERCUSTCD" value="<?=isset($data['SERCUSTCD']) ? $data['SERCUSTCD']: ''; ?>"/>
@@ -112,30 +129,6 @@
                                             </button>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="flex mb-1">
-                                        <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="PERSON_RESPONSE_TXT"><?=checklang('PERSON_RESPONSE')?></label>
-                                        <div class="relative w-3/12 mr-1">
-                                            <input type="text" class="text-control text-sm shadow-sm border rounded-xl h-7 w-full py-2 px-3 text-gray-700 border-gray-300"
-                                                    id="SERSTAFFCD" name="SERSTAFFCD" value="<?=isset($data['SERSTAFFCD']) ? $data['SERSTAFFCD']: ''; ?>"/>
-                                            <a class="search-tag absolute top-0 end-0 h-7 py-2 px-3 rounded-e-xl border focus:ring-4 focus:outline-none"
-                                                id="SEARCHSTAFFS">
-                                                <svg class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 20 20">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <input type="text" class="text-control text-[12px] shadow-sm border rounded-xl h-7 w-4/12 py-2 px-3 mr-1 text-gray-700 border-gray-300 read"
-                                                id="SERSTAFFNAME" name="SERSTAFFNAME" value="<?=isset($data['SERSTAFFNAME']) ? $data['SERSTAFFNAME']: ''; ?>" readonly/>
-                                        <div class="flex w-3/12 justify-end">
-                                            <button type="button" class="btn text-color inline-flex justify-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-3xl text-sm font-medium w-9/12 py-0.5"
-                                                    id="SEARCH" name="SEARCH"><?=checklang('SEARCH')?>
-                                                <svg class="w-4 h-4 ml-2 mt-0.5" aria-hidden="true" fill="none" viewBox="0 0 20 20">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </details>
                         </div>
@@ -155,13 +148,13 @@
                                             <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('CUSTOMERNAME'); ?></span>
                                         </th>
                                         <th class="px-6 text-center border border-slate-700 text-center">
-                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('PRODUCTNAME'); ?></span>
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('ESTTMNAME'); ?></span>
                                         </th>
                                         <th class="px-6 text-center border border-slate-700 text-center">
-                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('RECIPIENT'); ?></span>
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DELI_PLACE'); ?></span>
                                         </th>
                                         <th class="px-6 text-center border border-slate-700 text-center">
-                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('RECIPIENTNAME'); ?></span>
+                                            <span class="text-color text-sm font-semibold tracking-wide whitespace-nowrap"><?=checklang('DELE_PLACE_NAME'); ?></span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -170,12 +163,12 @@
                                         foreach($data['SEARCHITEM'] as $key => $value) { ?>
                                         <tr class="divide-y divide-gray-200 cursor-pointer search-id csv" id="searchrow<?=$key?>">
                                             <td class="hidden search-seq"><?=$key ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEORDERNO_TD<?=$key?>"><?=isset($value['SALEORDERNO']) ? $value['SALEORDERNO']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEISSUEDT_TD<?=$key?>"><?=isset($value['SALEISSUEDT']) ? $value['SALEISSUEDT']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSTOMERNAME_TD<?=$key?>"><?=isset($value['CUSTOMERNAME']) ? $value['CUSTOMERNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DELIVERYNAME_TD<?=$key?>"><?=isset($value['DELIVERYNAME']) ? $value['DELIVERYNAME']: '' ?></td>
-                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSCURDISP_TD<?=$key?>"><?=isset($value['CUSCURDISP']) ? $value['CUSCURDISP']: '' ?></td>
                                             <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ESTNO_TD<?=$key?>"><?=isset($value['ESTNO']) ? $value['ESTNO']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="SALEISSUEDT_TD<?=$key?>"><?=isset($value['ESTENTRYDT']) ? $value['ESTENTRYDT']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="CUSTOMERNAME_TD<?=$key?>"><?=isset($value['CUSTOMERNAME']) ? $value['CUSTOMERNAME']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="ESTTITLE_TD<?=$key?>"><?=isset($value['ESTTITLE']) ? $value['ESTTITLE']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DELIVERYCD_TD<?=$key?>"><?=isset($value['DELIVERYCD']) ? $value['DELIVERYCD']: '' ?></td>
+                                            <td class="h-6 pl-1 text-sm border border-slate-700 text-left whitespace-nowrap" id="DELIVERYNAME_TD<?=$key?>"><?=isset($value['DELIVERYNAME']) ? $value['DELIVERYNAME']: '' ?></td>
                                         </tr><?php 
                                         }
                                     }
@@ -649,6 +642,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         unRequired(); // calculateDVW();
+        document.getElementById('PRINT').disabled = true;
+        document.getElementById('CANCEL').disabled = true;
+        document.getElementById('DELITEM').disabled = true;
+
         let cancelled = '<?php echo (!empty($data['SYSMSG']) ? $data['SYSMSG']: 'null'); ?>';
         if(cancelled != 'null' && cancelled == 'WARN_CANCALEDQUOTE') { 
             $('.search-tag').css('pointer-events', 'none');

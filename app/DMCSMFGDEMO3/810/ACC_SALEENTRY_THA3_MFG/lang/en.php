@@ -2,18 +2,31 @@
     function lang($msg) {
 
         $lang = [
-            'clear' => 'Clear',
-            'close' => 'Close',
             'ERRO_NOCURCD' => 'ERRO_NOCURCD',
             'ERRO_NO_CUTOMER' => 'ERRO_NO_CUTOMER',
             'ERRO_SALEORDERNO' => 'ERRO_SALEORDERNO',
             'WARN_CANCALEDQUOTE' => 'WARN_CANCALEDQUOTE',
+
+            'searchcondition' => 'Search Conditions',
+
+            'groupsaleheader' => 'Invoice / Sale Voucher Header Data',
+            'groupcustomer' => 'Customer',
+            'groupsaledetail' => 'Invoice / Sale Voucher Details Data',
+            'groupsaleitem' => 'Invoice / Sale Voucher Items',
+            'grouptotal' => 'Total',
+            'groupitemremark' => 'Remark',
+            'groupitementry' => 'Items Entry Form',
+            
+            'newitems' => 'New Item',
+            'saveitems' => 'Save Item',
+            'deleteitems' => 'Delete Item',
+
             'yes' => 'Yes',
             'no' => 'No',
             'ok' => 'Ok',
-            'nono' => 'No',
+            'close' => 'Close',
+
             'canceled' => 'Canceled.',
-            'setofdocuments' => 'Documents are issued as a set',
 
             'question1' => 'Do you want to end this process ?',
             'question2' => 'Do you want to cancel the data ? (After cancellation processing, data cannot be reused.)',
@@ -22,7 +35,6 @@
             'validation1' => 'All the mandatory fields surrounded in red line need to be completed.',
             'validation2' => 'Please press the issue button after entering the reason of reprint.',
             
-
             'erro1' => 'The stock is less than your order, please recheck the stock and adjust its quantity.',
             'erro2' => 'There is insufficient logical inventory for the item covered by the continuous recording method. cannot be processed.',
             'erro3' => 'Item information is missing.',

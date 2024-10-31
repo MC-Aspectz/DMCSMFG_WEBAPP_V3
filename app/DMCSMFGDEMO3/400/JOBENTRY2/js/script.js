@@ -301,7 +301,7 @@ async function entry() {
     });
     $('#ROWNO').val('');
     $('#PROPSSNO').val('');
-    $('#JOBPROENTRYDT').val('');
+    $('#JOBPROENTRYDT').val(new Date().toISOString().substring(0, 10));
     $('#PROPSSLASTFLG').val('');
     $('#LOCCD').val('');
     $('#LOCNAME').val('');

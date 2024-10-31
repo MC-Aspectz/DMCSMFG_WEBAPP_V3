@@ -8,6 +8,13 @@ class QuoteEntryMFG extends Syslogic {
         $this->APPCODE = 'ACC_SALEQUOTEENTRY_THA';
     }
 
+    public function searchQuote($P1, $P2, $P3, $P4, $P5) {
+        $Param = array('P1' => $P1, 'P2' => $P2, 'P3' => $P3, 'P4' => $P4, 'P5' => $P5);
+        $cmd = GetRequestData($Param, 'search.SearchGeneral.searchQuote', $this->APPCODE, '');
+        $data = ExecuteAll($cmd, $errorMessage);
+        return $data;
+    }
+
     public function getEst($ESTNO) {
         $Param = array('ESTNO' => $ESTNO);
         $cmd = GetRequestData($Param, 'acc.THA.AccEstimateEntry_MFG.getEst', $this->APPCODE, '');

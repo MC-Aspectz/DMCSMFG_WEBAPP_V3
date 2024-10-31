@@ -1,0 +1,4 @@
+#table td:not(:empty):hover {
+    background-color: rgb(196 181 253);
+    border: 1.0px solid rgb(196 181 253);
+}
