@@ -234,7 +234,7 @@
                         <article class="w-full max-h-[80%] overflow-y-auto px-2">
                             <div class="p-2 align-middle">
                                 <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquoteheader')?></summary>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupheader')?></summary>
                                     <div class="right-size w-full">
                                         <div class="flex mb-1 pl-4">
                                             <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('QUOTE_DATE')?></label>
@@ -398,10 +398,10 @@
 
                             <div class="p-2 align-middle">
                                 <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquotedetail')?></summary>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupdetail')?></summary>
                                     <div class="p-2 align-middle">
                                         <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupquoteitem')?></summary>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupitem')?></summary>
                                             <div id="table-area" class="overflow-scroll px-2 block h-[220px]">
                                                 <table id="table" class="quote_table w-full border-collapse border border-slate-500 divide-gray-200">
                                                     <thead class="sticky top-0 bg-gray-50">

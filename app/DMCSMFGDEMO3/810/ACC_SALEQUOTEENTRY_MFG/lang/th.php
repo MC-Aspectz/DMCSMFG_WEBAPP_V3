@@ -4,10 +4,10 @@
 
             'searchcondition' => 'เงื่อนไขการค้นหา'
 
-            'groupqoeteheader' => 'ข้อมูลส่วนหัวของใบเสนอราคา',
+            'groupheader' => 'ข้อมูลส่วนหัวของใบเสนอราคา',
             'groupcustomer' => 'ลูกค้า',
-            'groupqoetedetail' => 'ข้อมูลรายละเอียดใบเสนอราคา',
-            'groupqoeteitem' => 'รายการใบเสนอราคา',
+            'groupdetail' => 'ข้อมูลรายละเอียดใบเสนอราคา',
+            'groupitem' => 'รายการสินค้าใบเสนอราคา',
             'grouptotal' => 'รวม',
             'groupitemremark' => 'หมายเหตุ',
             'groupitementry' => 'แบบฟอร์มรายการสินค้า',

@@ -66,6 +66,8 @@ $minrow = 0;
 $maxrow = 5;
 $minrowA = 0;
 $maxrowA = 5;
+$minsearchrow = 0;
+$maxsearchrow = 16;
 
 if(!empty($_GET)) {
     if(!empty($_GET['SALETRANNO'])) {

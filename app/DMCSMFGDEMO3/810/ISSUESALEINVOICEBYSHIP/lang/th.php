@@ -2,17 +2,33 @@
     function lang($msg) {
 
         $lang = [
-            'clear' => 'ล้าง',
-            'close' => 'ปิด', 
+
             'ERRO_NOCURCD' => 'ERRO_NOCURCD',
             'ERRO_NO_CUTOMER' => 'ERRO_NO_CUTOMER',
             'ERRO_SALEORDERNO' => 'ERRO_SALEORDERNO',
             'WARN_CANCALEDQUOTE' => 'WARN_CANCALEDQUOTE',
+
+            'searchcondition' => 'เงื่อนไขการค้นหา'
+
+            'groupheader' => 'ข้อมูลส่วนหัวใบแจ้งหนี้/ใบกำกับสินค้าโดยการขนส่ง',
+            'groupcustomer' => 'ลูกค้า',
+            'groupdetail' => 'ข้อมูลรายละเอียดใบแจ้งหนี้/ใบกำกับสินค้า',
+            'groupitem' => 'รายการสินค้าใบแจ้งหนี้/ใบกำกับสินค้า',
+            'grouptotal' => 'รวม',
+            'groupitemremark' => 'หมายเหตุ',
+            'groupitementry' => 'แบบฟอร์มรายการสินค้า',
+
+            'newitems' => 'รายการใหม่',
+            'saveitems' => 'บันทึกรายการ',
+            'deleteitems' => 'ลบรายการ',
+
             'yes' => 'ใช่',
             'no' => 'ไม่',
             'ok' => 'Ok',
-            'nono' => 'ไม่',
+            'close' => 'ปิด',
+            
             'canceled' => 'ยกเลิกแล้ว',
+            
             'setofdocuments' => 'เอกสารออกเป็นชุด',
             'selectshipping' => 'เลือกการจัดส่งเพื่อออกใบแจ้งหนี้',
             'invoicesalevoucher' => 'ใบกำกับสินค้า / ใบสำคัญการขาย',

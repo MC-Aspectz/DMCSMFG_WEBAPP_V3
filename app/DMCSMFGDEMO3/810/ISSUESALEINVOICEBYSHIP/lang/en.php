@@ -2,17 +2,33 @@
     function lang($msg) {
 
         $lang = [
-            'clear' => 'Clear',
-            'close' => 'Close',
+
             'ERRO_NOCURCD' => 'ERRO_NOCURCD',
             'ERRO_NO_CUTOMER' => 'ERRO_NO_CUTOMER',
             'ERRO_SALEORDERNO' => 'ERRO_SALEORDERNO',
             'WARN_CANCALEDQUOTE' => 'WARN_CANCALEDQUOTE',
+
+            'searchcondition' => 'Search Conditions',
+
+            'groupheader' => 'Invoice / Sale Voucher by Shipping Header Data',
+            'groupcustomer' => 'Customer',
+            'groupdetail' => 'Invoice / Sale Voucher Details Data',
+            'groupitem' => 'Invoice / Sale Voucher Voucher Items',
+            'grouptotal' => 'Total',
+            'groupitemremark' => 'Remark',
+            'groupitementry' => 'Items Entry Form',
+            
+            'newitems' => 'New Item',
+            'saveitems' => 'Save Item',
+            'deleteitems' => 'Delete Item',
+
             'yes' => 'Yes',
             'no' => 'No',
             'ok' => 'Ok',
-            'nono' => 'No',
+            'close' => 'Close',
+
             'canceled' => 'Canceled.',
+
             'setofdocuments' => 'Documents are issued as a set',
             'selectshipping' => 'Select Shipping to Issue Invoice',
             'invoicesalevoucher' => 'Invoice / Sale Voucher Entry',

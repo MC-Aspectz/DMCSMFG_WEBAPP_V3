@@ -9,11 +9,11 @@
 
             'searchcondition' => '検索条件',
 
-            'groupsaleheader' => '販売注文ヘッダーデータ',
+            'groupheader' => '販売注文ヘッダーデータ',
             'groupcustomer' => '顧客',
             'grouprecipient' => '受取人',
-            'groupsaledetail' => '販売注文詳細データ',
-            'groupsaleitem' => '販売注文商品',
+            'groupdetail' => '販売注文詳細データ',
+            'groupitem' => '販売注文商品',
             'grouptotal' => '合計',
             'groupitemremark' => '述べる',
             'groupitementry' => '商品入力フォーム',

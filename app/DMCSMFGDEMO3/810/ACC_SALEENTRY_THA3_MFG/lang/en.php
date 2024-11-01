@@ -9,10 +9,10 @@
 
             'searchcondition' => 'Search Conditions',
 
-            'groupsaleheader' => 'Invoice / Sale Voucher Header Data',
+            'groupheader' => 'Invoice / Sale Voucher Header Data',
             'groupcustomer' => 'Customer',
-            'groupsaledetail' => 'Invoice / Sale Voucher Details Data',
-            'groupsaleitem' => 'Invoice / Sale Voucher Items',
+            'groupdetail' => 'Invoice / Sale Voucher Details Data',
+            'groupitem' => 'Invoice / Sale Voucher Items',
             'grouptotal' => 'Total',
             'groupitemremark' => 'Remark',
             'groupitementry' => 'Items Entry Form',

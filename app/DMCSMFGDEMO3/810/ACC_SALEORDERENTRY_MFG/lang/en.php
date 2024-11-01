@@ -9,11 +9,11 @@
 
             'searchcondition' => 'Search Conditions',
 
-            'groupsaleheader' => 'Sale Order Header Data',
+            'groupheader' => 'Sale Order Header Data',
             'groupcustomer' => 'Customer',
             'grouprecipient' => 'Recipient',
-            'groupsaledetail' => 'Sale Order Details Data',
-            'groupsaleitem' => 'Sale Order Items',
+            'groupdetail' => 'Sale Order Details Data',
+            'groupitem' => 'Sale Order Items',
             'grouptotal' => 'Total',
             'groupitemremark' => 'Remark',
             'groupitementry' => 'Items Entry Form',

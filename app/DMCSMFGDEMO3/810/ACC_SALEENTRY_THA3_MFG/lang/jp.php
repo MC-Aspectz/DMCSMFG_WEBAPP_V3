@@ -9,10 +9,10 @@
 
             'searchcondition' => '検索条件',
 
-            'groupsaleheader' => '請求書/販売伝票ヘッダーデータ',
+            'groupheader' => '請求書/販売伝票ヘッダーデータ',
             'groupcustomer' => '顧客',
-            'groupsaledetail' => '請求書/販売伝票詳細データ',
-            'groupsaleitem' => '請求書/販売券項目',
+            'groupdetail' => '請求書/販売伝票詳細データ',
+            'groupitem' => '請求書/販売券項目',
             'grouptotal' => '合計',
             'groupitemremark' => '述べる',
             'groupitementry' => '商品入力フォーム',

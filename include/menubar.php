@@ -399,7 +399,7 @@ function sideBar() {
         $_SESSION['APPMOD'] = $appmod;
     } else {
         $appcode = $appmod;
-        $_SESSION['APPMOD'] = $_SESSION['MODCURRENT'][$apppack];
+        $_SESSION['APPMOD'] = array_key_exists($apppack, $_SESSION['MODCURRENT']) ? $_SESSION['MODCURRENT'][$apppack]: $appmod;
     }
     // print_r($appcode);
     // $_SESSION['APPCURRENT'] = $appcode;

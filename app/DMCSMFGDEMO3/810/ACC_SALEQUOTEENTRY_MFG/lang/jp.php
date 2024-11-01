@@ -4,10 +4,10 @@
 
             'searchcondition' => '検索条件',
 
-            'groupquoteheader' => 'キュー ヘッダー データ',
+            'groupheader' => 'キュー ヘッダー データ',
             'groupcustomer' => '顧客',
-            'groupquotedetail' => 'キュー詳細データ',
-            'groupquoteitem' => 'キュー アイテム',
+            'groupdetail' => 'キュー詳細データ',
+            'groupitem' => 'キュー アイテム',
             'grouptotal' => '合計',
             'groupitemremark' => '述べる'
             'groupitementry' => '商品入力フォーム',

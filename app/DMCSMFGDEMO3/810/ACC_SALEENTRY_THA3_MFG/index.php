@@ -108,15 +108,14 @@
 
                                     <div class="flex mb-1">
                                         <label class="text-color block text-sm font-normal w-2/12 pr-2 pt-1" id="PERSON_RESPONSE_TXT"><?=checklang('STATUS')?></label>
-                                        <select id="STATUYS" name="STATUYS" class="text-control text-[12px] shadow-md border mr-1 px-3 h-7 w-6/12 text-left rounded-xl border-gray-300 read" readonly>
+                                        <select id="STATUS" name="STATUS" class="text-control text-[12px] shadow-md border mr-1 px-3 h-7 w-3/12 text-left rounded-xl border-gray-300">
                                             <option value=""></option>
                                             <?php foreach ($BRANCH_KBN as $key => $item) { ?>
-                                                <option value="<?=$key ?>" <?=(isset($data['STATUYS']) && $data['STATUYS'] == $key) ? 'selected' : '' ?>><?=$item ?></option>
+                                                <option value="<?=$key ?>" <?=(isset($data['STATUS']) && $data['STATUS'] == $key) ? 'selected' : '' ?>><?=$item ?></option>
                                             <?php } ?>
                                         </select>
-                   
-                                        <div class="flex w-3/12 justify-end">
-                                            <button type="button" class="btn text-color inline-flex justify-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-3xl text-sm font-medium w-9/12 py-0.5"
+                                        <div class="flex w-7/12 justify-end">
+                                            <button type="button" class="btn text-color inline-flex justify-center border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-3xl text-sm font-medium w-4/12 py-0.5"
                                                     id="SEARCH" name="SEARCH"><?=checklang('SEARCH')?>
                                                 <svg class="w-4 h-4 ml-2 mt-0.5" aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -245,20 +244,20 @@
                         <article class="w-full max-h-[80%] overflow-y-auto px-2">
                             <div class="p-2 align-middle">
                                 <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupsaleheader')?></summary>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupheader')?></summary>
                                     <div class="right-size w-full">
                                         <div class="flex mb-1 pl-4">
-                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('INVDATE')?></label>
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('INPUT_DATE')?></label>
                                             <input type="date" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                    id="SALETRANINSPDT" name="SALETRANINSPDT" value="<?=date('Y-m-d')?>"/>
+                                                    id="SALETRANSALEDT" name="SALETRANSALEDT" value="<?=date('Y-m-d')?>"/>
                                             <input class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 text-center hidden"
                                                 type="date" id="SALELNDUEDT" name="SALELNDUEDT" value="" readonly/>
                                         </div>
 
                                         <div class="flex mb-1 pl-4">
-                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('INPUT_DATE')?></label>
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('INVDATE')?></label>
                                             <input type="date" class="text-control text-sm shadow-md border rounded-xl h-7 w-4/12 py-2 px-3 text-gray-700 border-gray-300 text-center read"
-                                                    id="SALETRANSALEDT" name="SALETRANSALEDT" value="<?=date('Y-m-d')?>"/>
+                                                    id="SALETRANINSPDT" name="SALETRANINSPDT" value="<?=date('Y-m-d')?>"/>
                                             <input class="text-control text-sm shadow-md border z-20 rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300 text-center hidden"
                                                 type="date" id="SALELNDUEDT" name="SALELNDUEDT" value="" readonly/>
                                         </div>
@@ -324,6 +323,13 @@
                                                 </a>
                                             </div>
                                         </div>
+
+                                        <div class="flex mb-1 pl-4">
+                                            <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('CREDITTERM')?></label>
+                                            <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300"
+                                                   id="SALETERM" name="SALETERM" onchange="unRequired();" oninput="this.value = stringReplacez(this.value);" value="" required/>
+                                            <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
+                                        </div>   
 
                                         <div class="flex mb-1 pl-4">
                                             <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('DESCRIPTION')?></label>
@@ -393,13 +399,6 @@
                                                 </div>    
 
                                                 <div class="flex mb-1 pl-4">
-                                                    <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('CREDITTERM')?></label>
-                                                    <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-3/12 py-2 px-3 text-gray-700 border-gray-300"
-                                                           id="SALETERM" name="SALETERM" onchange="unRequired();" oninput="this.value = stringReplacez(this.value);" value="" required/>
-                                                    <label class="text-color block text-sm w-1/12 pr-2 pt-1 ml-2"><?=checklang('DAYS')?></label>
-                                                </div>   
-
-                                                <div class="flex mb-1 pl-4">
                                                     <label class="text-color block text-sm font-normal w-3/12 pr-2 pt-1"><?=checklang('ATTENTION')?></label>
                                                     <input type="text" class="text-control ctrl-read text-sm shadow-sm border rounded-xl h-7 w-9/12 py-2 px-3 text-gray-700 border-gray-300"
                                                            id="ESTCUSSTAFF" name="ESTCUSSTAFF" value=""/>
@@ -445,10 +444,10 @@
 
                             <div class="p-2 align-middle">
                                 <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupsaledetail')?></summary>
+                                    <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupdetail')?></summary>
                                     <div class="p-2 align-middle">
                                         <details class="border-2 border-gray-200 p-2 rounded-xl shadow-sm" open>
-                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupsaleitem')?></summary>
+                                            <summary class="text-color mx-auto py-2 text-lg font-semibold"><?=lang('groupitem')?></summary>
                                             <div id="table-area" class="overflow-scroll px-2 block h-[220px]">
                                                 <table id="table" class="so_table w-full border-collapse border border-slate-500 divide-gray-200">
                                                     <thead class="sticky top-0 bg-gray-50">

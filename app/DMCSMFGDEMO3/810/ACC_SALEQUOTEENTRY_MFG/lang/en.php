@@ -4,10 +4,10 @@
 
             'searchcondition' => 'Search Conditions',
 
-            'groupquoteheader' => 'Quote Header Data',
+            'groupheader' => 'Quote Header Data',
             'groupcustomer' => 'Customer',
-            'groupquotedetail' => 'Quote Details Data',
-            'groupquoteitem' => 'Quote Items',
+            'groupdetail' => 'Quote Details Data',
+            'groupitem' => 'Quote Items',
             'grouptotal' => 'Total',
             'groupitemremark' => 'Remark',
             'groupitementry' => 'Items Entry Form',
